@@ -1,0 +1,16 @@
+.row{
+    width: 100%;
+}
+
+.student-profile{
+    float: right;
+    margin-right: 20%;
+    
+}
+.student-profile img{
+    width: 6rem;
+    height: 6rem;
+}
+
+
+/* Form Content  */

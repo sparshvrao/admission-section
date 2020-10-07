@@ -1,0 +1,19 @@
+<a type="button" href={{logout}}>Logout</a>
+<table style="display:inline">
+{% for key,value in fields.items()%}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+        <td>{{col}}</td>
+    </tr>
+{% endfor %}
+</table>
+<table style="display:inline;"> 
+    {% for col in cols[1:] %}
+    <tr>
+        <td>
+            {{col}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

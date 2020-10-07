@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{url_for('static',filename='loginpage.css')}}">
+{% endblock %}
+{% block main %}
+
+<div class="wrapper">
+    <div class="container">
+      
+      <div class="signup user" style="width:100%">Register</div>
+
+      
+       <form action="/register" method="POST" class="signup-form user-form">
+          <input type="text" placeholder="Enter Username" name="username" id="user_email" class="input"><br />
+          <input type="password" placeholder="Password" name="password1" id="user_password" class="input"><br />
+          <input type="password" placeholder="Re-Enter Password" name="password2" id="user_password" class="input"><br />
+          {{form.register (class="btn",value="Register")}}
+       </form>
+      
+    </div>
+  </div>
+{% endblock %}

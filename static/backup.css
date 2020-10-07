@@ -1,0 +1,100 @@
+
+
+
+
+
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(243,251,254);
+}
+ .title-heading a{
+    text-decoration: none;
+    
+}
+.text-center{
+    text-align: center!important;
+}
+.title-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+img{
+    height: 4rem;
+    width: 4rem;
+}
+.heading{
+    display: inline;
+    font-size: 1rem;
+    color: black;
+    font-weight: 600;
+    line-height: 2rem;
+}
+ h2{ 
+ 
+    font-weight: 500;  
+    line-height: 1.2;
+    display: block;
+    font-size: 1.8em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/*  Select Degree Form   */
+.select{
+    position: relative;
+    z-index: 1;
+}
+
+.select-degree{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 3rem;
+    width: 100%;
+    border: 0.2px solid black;
+    border-radius: .5rem;
+    outline: none;
+    padding: 1rem;
+    background: none;
+    
+   
+}
+
+.form-title{
+    font-family: "Lucida" Grande, sans-serif;
+    position: absolute;
+    top: -2rem;
+    left: 0.8rem;
+    font-size:1.7rem ;
+    color: black;
+    z-index: 10;
+    
+}
+
+span{
+    color: red;
+    font-size: 1.3rem;
+}
+
+
+
+
+
+
+
+
+/* Responsive Media Screen   */
+@media screen and (max-width: 600px) {
+    .select-degree {
+      margin-inline-end: 20px;
+    }
+  }

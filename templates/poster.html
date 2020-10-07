@@ -1,0 +1,188 @@
+{% extends 'master.html' %}
+
+
+
+{% block pg %}
+<div class="PG-details" id="PG-details" >
+    <div class="text-center display-5">PG Details</div>
+  <div class="student-details ml-4 mr-4" >
+    <div action="" method="POST" class="form general-form">
+        <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+                <label for="XII_Institution">Institution<em>*</em></label>
+                <input type="text" class="form-control" id="X_Institution" name="pg_institution" required>
+              </div>     
+           <div _ngcontent-c1="" class="col-md-6 col-sm-6 ng-star-inserted" name="ug_board"><label _ngcontent-c1="" for="board">Board <!----><em _ngcontent-c1="" class="ng-star-inserted">*</em></label><div _ngcontent-c1="" class="group form-group"><select _ngcontent-c1="" name="pg_board" class="form-control ng-pristine ng-invalid ng-touched" title="Please enter board " required=""><option _ngcontent-c1="" disabled="" value="">Board </option><!----><option _ngcontent-c1="" selected value="Andhra Pradesh Board of Intermediate Education" class="ng-star-inserted">Andhra Pradesh Board of Intermediate Education</option><option _ngcontent-c1="" value="Andhra Pradesh Board of Secondary Education" class="ng-star-inserted">Andhra Pradesh Board of Secondary Education</option><option _ngcontent-c1="" value="Andhra Pradesh Open School Society" class="ng-star-inserted">Andhra Pradesh Open School Society</option><option _ngcontent-c1="" value="Assam Higher Secondary Education Council, Bamunimaidan" class="ng-star-inserted">Assam Higher Secondary Education Council, Bamunimaidan</option><option _ngcontent-c1="" value="Assam Board of Secondary Education" class="ng-star-inserted">Assam Board of Secondary Education</option><option _ngcontent-c1="" value="Bihar Intermediate Education Council" class="ng-star-inserted">Bihar Intermediate Education Council</option><option _ngcontent-c1="" value="Bihar School Examination Board" class="ng-star-inserted">Bihar School Examination Board</option><option _ngcontent-c1="" value="Bihar Sanskrit Shiksha Board" class="ng-star-inserted">Bihar Sanskrit Shiksha Board</option><option _ngcontent-c1="" value="Chhatisgarh Board of Secondary Education" class="ng-star-inserted">Chhatisgarh Board of Secondary Education</option><option _ngcontent-c1="" value="Goa Board of Secondary &amp; Higher Secondary Education" class="ng-star-inserted">Goa Board of Secondary &amp; Higher Secondary Education</option><option _ngcontent-c1="" value="Gujarat Secondary &amp; Higher Secondary Education Board" class="ng-star-inserted">Gujarat Secondary &amp; Higher Secondary Education Board</option><option _ngcontent-c1="" value="Haryana Board of Education" class="ng-star-inserted">Haryana Board of Education</option><option _ngcontent-c1="" value="Haryana Open School" class="ng-star-inserted">Haryana Open School</option><option _ngcontent-c1="" value="Himachal Pradesh Board of School Education" class="ng-star-inserted">Himachal Pradesh Board of School Education</option><option _ngcontent-c1="" value="J&amp;K State Board of School Education" class="ng-star-inserted">J&amp;K State Board of School Education</option><option _ngcontent-c1="" value="J&amp;K State Open School" class="ng-star-inserted">J&amp;K State Open School</option><option _ngcontent-c1="" value="Jharkhand Academic Council" class="ng-star-inserted">Jharkhand Academic Council</option><option _ngcontent-c1="" value="Karnataka Board of the Pre-University Education" class="ng-star-inserted">Karnataka Board of the Pre-University Education</option><option _ngcontent-c1="" value="Karnataka Secondary Education Examination Board" class="ng-star-inserted">Karnataka Secondary Education Examination Board</option><option _ngcontent-c1="" value="Karnataka Open School" class="ng-star-inserted">Karnataka Open School</option><option _ngcontent-c1="" value="Kerala Board of Public Examinations" class="ng-star-inserted">Kerala Board of Public Examinations</option><option _ngcontent-c1="" value="Kerala Board of Higher Secondary Education" class="ng-star-inserted">Kerala Board of Higher Secondary Education</option><option _ngcontent-c1="" value="Kerala State Open School" class="ng-star-inserted">Kerala State Open School</option><option _ngcontent-c1="" value="Maharashtra State Board of Secondary and Higher Secondary Education" class="ng-star-inserted">Maharashtra State Board of Secondary and Higher Secondary Education</option><option _ngcontent-c1="" value=" Madhya Pradesh Board of Secondary Education" class="ng-star-inserted"> Madhya Pradesh Board of Secondary Education</option><option _ngcontent-c1="" value="M.P. State Open School" class="ng-star-inserted">M.P. State Open School</option><option _ngcontent-c1="" value="Maharashtra State Board of Secondary and Higher Secondary Education" class="ng-star-inserted">Maharashtra State Board of Secondary and Higher Secondary Education</option><option _ngcontent-c1="" value="Manipur Council of Higher Secondary Education" class="ng-star-inserted">Manipur Council of Higher Secondary Education</option><option _ngcontent-c1="" value="Manipur Board of Secondary Education" class="ng-star-inserted">Manipur Board of Secondary Education</option><option _ngcontent-c1="" value="Meghalaya Board of School Education" class="ng-star-inserted">Meghalaya Board of School Education</option><option _ngcontent-c1="" value="Mizoram Board of School Education Chaltlan" class="ng-star-inserted">Mizoram Board of School Education Chaltlan</option><option _ngcontent-c1="" value="Nagaland Board of School Education" class="ng-star-inserted">Nagaland Board of School Education</option><option _ngcontent-c1="" value="Orissa Council of Higher Secondary Education" class="ng-star-inserted">Orissa Council of Higher Secondary Education</option><option _ngcontent-c1="" value="Orissa Board of Secondary Education" class="ng-star-inserted">Orissa Board of Secondary Education</option><option _ngcontent-c1="" value="Orissa Board of Secondary Education" class="ng-star-inserted">Orissa Board of Secondary Education</option><option _ngcontent-c1="" value="Orissa Board of Secondary Education" class="ng-star-inserted">Orissa Board of Secondary Education</option><option _ngcontent-c1="" value="Orissa Board of Secondary Education" class="ng-star-inserted">Orissa Board of Secondary Education</option><option _ngcontent-c1="" value="Punjab School Education Board" class="ng-star-inserted">Punjab School Education Board</option><option _ngcontent-c1="" value="Rajasthan Board of Secondary Education       " class="ng-star-inserted">Rajasthan Board of Secondary Education       </option><option _ngcontent-c1="" value="Rajasthan State Open School" class="ng-star-inserted">Rajasthan State Open School</option><option _ngcontent-c1="" value="Tamil Nadu Board of Secondary Education" class="ng-star-inserted">Tamil Nadu Board of Secondary Education</option><option _ngcontent-c1="" value="Tamil Nadu Board of Higher Secondary Education" class="ng-star-inserted">Tamil Nadu Board of Higher Secondary Education</option><option _ngcontent-c1="" value="Tripura Board of Secondary Education" class="ng-star-inserted">Tripura Board of Secondary Education</option><option _ngcontent-c1="" value="U.P. Board of High School &amp; Intermediate Education" class="ng-star-inserted">U.P. Board of High School &amp; Intermediate Education</option><option _ngcontent-c1="" value="West Bengal Board of Secondary Education" class="ng-star-inserted">West Bengal Board of Secondary Education</option><option _ngcontent-c1="" value="West Bengal Council of Higher Secondary Education" class="ng-star-inserted">West Bengal Council of Higher Secondary Education</option><option _ngcontent-c1="" value="Rabindra Mukta Vidyalaya" class="ng-star-inserted">Rabindra Mukta Vidyalaya</option><option _ngcontent-c1="" value="West Bengal Board of Madarsa Education" class="ng-star-inserted">West Bengal Board of Madarsa Education</option><option _ngcontent-c1="" value="National Institute of Open Schooling" class="ng-star-inserted">National Institute of Open Schooling</option><option _ngcontent-c1="" value="Central Board of Secondary Education (CBSE)" class="ng-star-inserted">Central Board of Secondary Education (CBSE)</option><option _ngcontent-c1="" value="Council for the Indian School Certificate Examinations" class="ng-star-inserted">Council for the Indian School Certificate Examinations</option></select></div><!----><div _ngcontent-c1="" class="validation-msg ng-star-inserted" style="margin-top: -17px !important; position: absolute !important;" hidden=""> Board is required </div><!----></div>
+          </div>
+    
+          <div class="form-row">
+            <div _ngcontent-c1="" class="col-md-6 col-sm-6 ng-star-inserted" name=xII_passingyear><label _ngcontent-c1="" for="yearOfPassing">Year of Passing <!----><em _ngcontent-c1="" class="ng-star-inserted">*</em></label><div _ngcontent-c1="" class="group form-group"><select _ngcontent-c1="" class="form-control ng-pristine ng-invalid ng-touched" title="Year of passing" name="pg_passingyear" required=""><option _ngcontent-c1="" disabled="" value="">Year of Passing </option><!----><option _ngcontent-c1="" selected value="1950" class="ng-star-inserted">1950 </option><option _ngcontent-c1="" value="1951" class="ng-star-inserted">1951 </option><option _ngcontent-c1="" value="1952" class="ng-star-inserted">1952 </option><option _ngcontent-c1="" value="1953" class="ng-star-inserted">1953 </option><option _ngcontent-c1="" value="1954" class="ng-star-inserted">1954 </option><option _ngcontent-c1="" value="1955" class="ng-star-inserted">1955 </option><option _ngcontent-c1="" value="1956" class="ng-star-inserted">1956 </option><option _ngcontent-c1="" value="1957" class="ng-star-inserted">1957 </option><option _ngcontent-c1="" value="1958" class="ng-star-inserted">1958 </option><option _ngcontent-c1="" value="1959" class="ng-star-inserted">1959 </option><option _ngcontent-c1="" value="1960" class="ng-star-inserted">1960 </option><option _ngcontent-c1="" value="1961" class="ng-star-inserted">1961 </option><option _ngcontent-c1="" value="1962" class="ng-star-inserted">1962 </option><option _ngcontent-c1="" value="1963" class="ng-star-inserted">1963 </option><option _ngcontent-c1="" value="1964" class="ng-star-inserted">1964 </option><option _ngcontent-c1="" value="1965" class="ng-star-inserted">1965 </option><option _ngcontent-c1="" value="1966" class="ng-star-inserted">1966 </option><option _ngcontent-c1="" value="1967" class="ng-star-inserted">1967 </option><option _ngcontent-c1="" value="1968" class="ng-star-inserted">1968 </option><option _ngcontent-c1="" value="1969" class="ng-star-inserted">1969 </option><option _ngcontent-c1="" value="1970" class="ng-star-inserted">1970 </option><option _ngcontent-c1="" value="1971" class="ng-star-inserted">1971 </option><option _ngcontent-c1="" value="1972" class="ng-star-inserted">1972 </option><option _ngcontent-c1="" value="1973" class="ng-star-inserted">1973 </option><option _ngcontent-c1="" value="1974" class="ng-star-inserted">1974 </option><option _ngcontent-c1="" value="1975" class="ng-star-inserted">1975 </option><option _ngcontent-c1="" value="1976" class="ng-star-inserted">1976 </option><option _ngcontent-c1="" value="1977" class="ng-star-inserted">1977 </option><option _ngcontent-c1="" value="1978" class="ng-star-inserted">1978 </option><option _ngcontent-c1="" value="1979" class="ng-star-inserted">1979 </option><option _ngcontent-c1="" value="1980" class="ng-star-inserted">1980 </option><option _ngcontent-c1="" value="1981" class="ng-star-inserted">1981 </option><option _ngcontent-c1="" value="1982" class="ng-star-inserted">1982 </option><option _ngcontent-c1="" value="1983" class="ng-star-inserted">1983 </option><option _ngcontent-c1="" value="1984" class="ng-star-inserted">1984 </option><option _ngcontent-c1="" value="1986" class="ng-star-inserted">1986 </option><option _ngcontent-c1="" value="1987" class="ng-star-inserted">1987 </option><option _ngcontent-c1="" value="1988" class="ng-star-inserted">1988 </option><option _ngcontent-c1="" value="1989" class="ng-star-inserted">1989 </option><option _ngcontent-c1="" value="1990" class="ng-star-inserted">1990 </option><option _ngcontent-c1="" value="1991" class="ng-star-inserted">1991 </option><option _ngcontent-c1="" value="1992" class="ng-star-inserted">1992 </option><option _ngcontent-c1="" value="1993" class="ng-star-inserted">1993 </option><option _ngcontent-c1="" value="1994" class="ng-star-inserted">1994 </option><option _ngcontent-c1="" value="1995" class="ng-star-inserted">1995 </option><option _ngcontent-c1="" value="1996" class="ng-star-inserted">1996 </option><option _ngcontent-c1="" value="1997" class="ng-star-inserted">1997 </option><option _ngcontent-c1="" value="1998" class="ng-star-inserted">1998 </option><option _ngcontent-c1="" value="1999" class="ng-star-inserted">1999 </option><option _ngcontent-c1="" value="2000" class="ng-star-inserted">2000 </option><option _ngcontent-c1="" value="2001" class="ng-star-inserted">2001 </option><option _ngcontent-c1="" value="2002" class="ng-star-inserted">2002 </option><option _ngcontent-c1="" value="2003" class="ng-star-inserted">2003 </option><option _ngcontent-c1="" value="2004" class="ng-star-inserted">2004 </option><option _ngcontent-c1="" value="2005" class="ng-star-inserted">2005 </option><option _ngcontent-c1="" value="2006" class="ng-star-inserted">2006 </option><option _ngcontent-c1="" value="2007" class="ng-star-inserted">2007 </option><option _ngcontent-c1="" value="2008" class="ng-star-inserted">2008 </option><option _ngcontent-c1="" value="2009" class="ng-star-inserted">2009 </option><option _ngcontent-c1="" value="2010" class="ng-star-inserted">2010 </option><option _ngcontent-c1="" value="2011" class="ng-star-inserted">2011 </option><option _ngcontent-c1="" value="2012" class="ng-star-inserted">2012 </option><option _ngcontent-c1="" value="2013" class="ng-star-inserted">2013 </option><option _ngcontent-c1="" value="2014" class="ng-star-inserted">2014 </option><option _ngcontent-c1="" value="2015" class="ng-star-inserted">2015 </option><option _ngcontent-c1="" value="2016" class="ng-star-inserted">2016 </option><option _ngcontent-c1="" value="2016" class="ng-star-inserted">2016 </option><option _ngcontent-c1="" value="2017" class="ng-star-inserted">2017 </option><option _ngcontent-c1="" value="2017" class="ng-star-inserted">2017 </option><option _ngcontent-c1="" value="2018" class="ng-star-inserted">2018 </option><option _ngcontent-c1="" value="2019" class="ng-star-inserted">2019 </option><option _ngcontent-c1="" value="2020" class="ng-star-inserted">2020 </option></select></div></div>
+    
+            <div _ngcontent-c1="" class="col-md-6 col-sm-6 ng-star-inserted"><label _ngcontent-c1=""name="xII_passingmonth" for="monthOfPassing" disable >Month of Passing <!----><em _ngcontent-c1="" class="ng-star-inserted">*</em></label><div _ngcontent-c1="" class="group form-group"><select _ngcontent-c1="" class="form-control ng-pristine ng-invalid ng-touched" name="pg_passingmonth" title="Please select month of passing" required=""><option _ngcontent-c1="" disabled="" value="">Month of Passing </option><!----><option _ngcontent-c1="" selected value="JANUARY" class="ng-star-inserted">January</option><option _ngcontent-c1="" value="FEBRUARY" class="ng-star-inserted">February</option><option _ngcontent-c1="" value="MARCH" class="ng-star-inserted">March</option><option _ngcontent-c1="" value="APRIL" class="ng-star-inserted">April</option><option _ngcontent-c1="" value="MAY" class="ng-star-inserted">May</option><option _ngcontent-c1="" value="JUNE" class="ng-star-inserted">June</option><option _ngcontent-c1="" value="JULY" class="ng-star-inserted">July</option><option _ngcontent-c1="" value="AUGUST" class="ng-star-inserted">August</option><option _ngcontent-c1="" value="SEPTEMBER" class="ng-star-inserted">September</option><option _ngcontent-c1="" value="OCTOBER" class="ng-star-inserted">October</option><option _ngcontent-c1="" value="NOVEMBER" class="ng-star-inserted">November</option><option _ngcontent-c1="" value="DECEMBER" class="ng-star-inserted">December</option></select></div></div>
+            
+    
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+              <label for="XII_Register_Num">Register Number<em>*</em></label>
+              <input type="text" class="form-control" id="XII_Register_Num" name="pg_registernumber" required>
+            </div>
+              
+            
+            <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+              <label for="Medium_of_Instruction">Medium of Instruction</label>
+              <select id="Medium_of_Instruction" class="form-control" name="pg_medium">
+    
+                <option value="KANNADA">KANNADA</option>
+                <option selected value="ENGLISH">ENGLISH</option>
+                <option value="HINDI">HINDI</option>
+                
+              </select>
+            </div>
+    
+          </div>
+      
+    </div>
+
+
+    <div class="text-center display-5">PG Details Address</div>
+    <div class="student-details ml-4 mr-4">
+      <div action="" method="POST" class="form general-form">
+        <div class="form-row">
+          <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+            <label for="pg_Area">Area<em>*</em></label>
+            <input type="text" class="form-control" id="pg_Area" name="pg_area">
+          </div>
+          <fieldset  class="form-group col-md-6 col-sm-6 ng-star-inserted col-sm-6 ng-star-inserted">
+            <div >
+              <label for="pg_country">PG Country</label>
+              <input type="text" id="pg_country" class="form-control"value="India" placeholder="India" name="pg_country">
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-row">
+          <div _ngcontent-c1="" class="col-md-6 col-sm-6 ng-star-inserted col-sm-6 ng-star-inserted"><label _ngcontent-c1="" for="stateOfBirth">State of Birth <!----><em _ngcontent-c1="" class="ng-star-inserted">*</em></label><div _ngcontent-c1="" class="group form-group"><select _ngcontent-c1="" class="form-control ng-pristine ng-invalid ng-touched" name="pg_state" title="Please enter your State of birth" required=""><option  disabled>State</option><!----><option _ngcontent-c1="" selected value="Andaman and Nicobar Islands" class="ng-star-inserted">Andaman and Nicobar Islands </option><option _ngcontent-c1="" value="Andhra Pradesh" class="ng-star-inserted">Andhra Pradesh </option><option _ngcontent-c1="" value="Arunachal Pradesh" class="ng-star-inserted">Arunachal Pradesh </option><option _ngcontent-c1="" value="Assam" class="ng-star-inserted">Assam </option><option _ngcontent-c1="" value="Bihar" class="ng-star-inserted">Bihar </option><option _ngcontent-c1="" value="Chandigarh" class="ng-star-inserted">Chandigarh </option><option _ngcontent-c1="" value="Chhattisgarh" class="ng-star-inserted">Chhattisgarh </option><option _ngcontent-c1="" value="Dadra and Nagar Haveli" class="ng-star-inserted">Dadra and Nagar Haveli </option><option _ngcontent-c1="" value="Daman and Diu" class="ng-star-inserted">Daman and Diu </option><option _ngcontent-c1="" value="Delhi" class="ng-star-inserted">Delhi </option><option _ngcontent-c1="" value="Goa" class="ng-star-inserted">Goa </option><option _ngcontent-c1="" value="Gujarat" class="ng-star-inserted">Gujarat </option><option _ngcontent-c1="" value="Haryana" class="ng-star-inserted">Haryana </option><option _ngcontent-c1="" value="Himachal Pradesh" class="ng-star-inserted">Himachal Pradesh </option><option _ngcontent-c1="" value="Jammu and Kashmir" class="ng-star-inserted">Jammu and Kashmir </option><option _ngcontent-c1="" value="Jharkhand" class="ng-star-inserted">Jharkhand </option><option _ngcontent-c1="" value="Karnataka" class="ng-star-inserted">Karnataka </option><option _ngcontent-c1="" value="Kerala" class="ng-star-inserted">Kerala </option><option _ngcontent-c1="" value="Lakshadweep" class="ng-star-inserted">Lakshadweep </option><option _ngcontent-c1="" value="Madhya Pradesh" class="ng-star-inserted">Madhya Pradesh </option><option _ngcontent-c1="" value="Maharashtra" class="ng-star-inserted">Maharashtra </option><option _ngcontent-c1="" value="Manipur" class="ng-star-inserted">Manipur </option><option _ngcontent-c1="" value="Meghalaya" class="ng-star-inserted">Meghalaya </option><option _ngcontent-c1="" value="Mizoram" class="ng-star-inserted">Mizoram </option><option _ngcontent-c1="" value="Nagaland" class="ng-star-inserted">Nagaland </option><option _ngcontent-c1="" value="Orissa" class="ng-star-inserted">Orissa </option><option _ngcontent-c1="" value="Puducherry" class="ng-star-inserted">Puducherry </option><option _ngcontent-c1="" value="Punjab" class="ng-star-inserted">Punjab </option><option _ngcontent-c1="" value="Rajasthan" class="ng-star-inserted">Rajasthan </option><option _ngcontent-c1="" value="Sikkim" class="ng-star-inserted">Sikkim </option><option _ngcontent-c1="" value="Tamil Nadu" class="ng-star-inserted">Tamil Nadu </option><option _ngcontent-c1="" value="Telangana" class="ng-star-inserted">Telangana </option><option _ngcontent-c1="" value="Tripura" class="ng-star-inserted">Tripura </option><option _ngcontent-c1="" value="Uttar Pradesh" class="ng-star-inserted">Uttar Pradesh </option><option _ngcontent-c1="" value="Uttarakhand" class="ng-star-inserted">Uttarakhand </option><option _ngcontent-c1="" value="West Bengal" class="ng-star-inserted">West Bengal </option></select></div></div>
+
+          <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+            <label for="Post">Post</label>
+            <input type="text" class="form-control" id="Post" name="pg_post" >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+            <label for="Pincode">Pincode</label>
+            <input type="text" class="form-control" id="Pincode" name="pg_pincode" >
+          </div>
+          <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+            <label for="pg_city">CITY</label>
+            <input type="text" class="form-control" id="pg_city" name="pg_city" >
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
+      <div class="mt-5 mb-5">
+        
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio"  id="pg_Marks_System" name="pg_resulttype" onclick="showpgMarkssystem(0)" value="marks" checked>
+        <label class="form-check-label" for="pg_ResultType1">
+          Marks System
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio"  id="pg_Grade_System" name="pg_resulttype" onclick="showpgMarkssystem(1)" value="grade" >
+        <label class="form-check-label" for="pg_ResultType2">
+          Grade System
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio"  id="pg_CGPA_System" name="pg_resulttype" onclick="showpgMarkssystem(2)" value="cgpa">
+        <label class="form-check-label" for="pg_ResultType3">
+          CGPA System
+        </label>
+      </div>
+      </div>
+
+
+      <!--pg marks system -->
+      <!--pg marks system -->
+      <div class="pg_marks_system" id="pg_marks_system" >
+        <div class="container  ">
+          <div class="form-row ">
+            <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+              <label for="pg_stu_obtainedmarks">Obtained Marks</label>
+              <input type="text" class="form-control" id="stu_pg_obtainedmarks" name="pg_obtainedmarks" >
+            </div>
+            <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+              <label for="pg_stu_totalmarks">Total Marks</label>
+              <input type="text" class="form-control" id="stu_pg_totalmarks" name="pg_totalmarks" >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+              <label for="stu_pg_overallpercentage">Overall Percentage</label>
+              <input type="text" class="form-control" id="stu_pg_overallpercentage" name="pg_overallpercentage" >
+            </div>
+            
+        </div>
+        
+        
+        </div>
+        
+       <!--paste marks here-->
+        </div>
+
+          
+
+         <!-- pg grade system -->
+<div class="grade-system" id="pg_grade_system" style="display: none;" >
+  <div class="container mt-4 mb-4 ">
+    <div class="form-row">
+      <div _ngcontent-c1="" class="col-md-6 col-sm-6 ng-star-inserted"><!----><!----><!----><!----><div _ngcontent-c1="" class="ng-star-inserted"><label _ngcontent-c1="" for="obtainedGrade">Obtained Grade <!----></label><div _ngcontent-c1="" class="group form-group"><select _ngcontent-c1="" class="form-control ng-pristine ng-valid ng-touched" title="" name="pg_obtainedgrade"><option _ngcontent-c1="" disabled="" value="" > </option><!----><option _ngcontent-c1="" selected value="A" class="ng-star-inserted"> A </option><option _ngcontent-c1="" value="A+" class="ng-star-inserted"> A+ </option><option _ngcontent-c1="" value="B" class="ng-star-inserted"> B </option><option _ngcontent-c1="" value="B+" class="ng-star-inserted"> B+ </option><option _ngcontent-c1="" value="C" class="ng-star-inserted"> C </option><option _ngcontent-c1="" value="C+" class="ng-star-inserted"> C+ </option><option _ngcontent-c1="" value="D" class="ng-star-inserted"> D </option><option _ngcontent-c1="" value="D+" class="ng-star-inserted"> D+ </option><option _ngcontent-c1="" value="E" class="ng-star-inserted"> E </option><option _ngcontent-c1="" value="E+" class="ng-star-inserted"> E+ </option><option _ngcontent-c1="" value="F" class="ng-star-inserted"> F </option></select></div></div><!----><!----><!----></div>
+      <div _ngcontent-c1="" class="col-md-6 col-sm-6 ng-star-inserted"><!----><!----><!----><!----><!----><div _ngcontent-c1="" class="ng-star-inserted"><label _ngcontent-c1="" for="highestGrade">Highest Grade <!----></label><div _ngcontent-c1="" class="group form-group"><select _ngcontent-c1="" class="form-control ng-pristine ng-valid ng-touched" title="" name="pg_totalgrade"><option _ngcontent-c1="" disabled="" value=""> </option><!----><option _ngcontent-c1="" selected value="A" class="ng-star-inserted"> A </option><option _ngcontent-c1="" value="A+" class="ng-star-inserted"> A+ </option><option _ngcontent-c1="" value="B" class="ng-star-inserted"> B </option><option _ngcontent-c1="" value="B+" class="ng-star-inserted"> B+ </option><option _ngcontent-c1="" value="C" class="ng-star-inserted"> C </option><option _ngcontent-c1="" value="C+" class="ng-star-inserted"> C+ </option><option _ngcontent-c1="" value="D" class="ng-star-inserted"> D </option><option _ngcontent-c1="" value="D+" class="ng-star-inserted"> D+ </option><option _ngcontent-c1="" value="E" class="ng-star-inserted"> E </option><option _ngcontent-c1="" value="E+" class="ng-star-inserted"> E+ </option><option _ngcontent-c1="" value="F" class="ng-star-inserted"> F </option></select></div></div><!----><!----></div>
+    </div>
+    
+      
+  </div>
+
+  <!--paste grade here-->
+  </div>
+
+  <!--pg CGPA system-->
+   <!--pg CGPA system-->
+   <div class="pg_cgpa_system" id="pg_cgpa_system" style="display: none;" >
+    <div class="container mt-4 mb-4 ">
+      <div class="form-row">
+        <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
+          <label for="stu_pg_cgpa">Obtained CGPA</label>
+          <input type="text" class="form-control" id="stu_pg_cgpa" name="pg_cgpa" >
+        </div>
+      </div>
+      
+        
+    </div>
+
+    <!--paste cgpa here-->
+    </div>
+
+    <!-- pg year wise Details-->
+
+   
+
+
+        </div>
+        
+        </div>
+
+{% endblock %}
+
+{% block scriptsadd %}
+<script>
+    var forms=document.getElementsByTagName('form');
+    for(var i=0;i<forms.length;i++){
+        forms[i].action="/POSTER";
+        forms[i].method="POST";
+    }
+</script>
+{% endblock %}

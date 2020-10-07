@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{url_for('static',filename='loginpage.css')}}">
+{% endblock %}
+
+
+
+
+    {% block main %}
+
+    <div class="wrapper">
+      <div class="container">
+        
+        <div class="signup user">User</div>
+        <div class="login admin">Admin</div>
+        
+         <form action="/loginpage" method="POST" class="signup-form user-form">
+            <input type="text" placeholder="Enter Username" name="username" id="user_email" class="input"><br />
+            <input type="password" placeholder="Password" name="password" id="user_password" class="input"><br />
+            {{form.login (class="btn")}}
+            <br></br>
+            <a href={{register}} class="btn">Register</a>
+         </form>
+        
+        <form action="/loginpage" method="POST" class="login-form admin-form">
+            <input type="text" placeholder="Enter Username" name="username" id="admin_email" class="input"><br />
+            <input type="password" placeholder="Password" name="password" id="password" class="input"><br />
+            {{form.adminlogin (class="btn",placeholder="Login")}}
+        </form>
+        
+      </div>
+    </div>
+
+
+    {% endblock %}
+    {% block scripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script>
+            $(document).ready(function(){
+              $(".login-form").hide();
+          $(".login").css("background", "rgb(241,241,241)");
+
+          $(".login").click(function(){
+          $(".signup-form").hide();
+          $(".login-form").show();
+          $(".signup").css("background", "rgb(241,241,241)");
+          $(".login").css("background", "#fff");
+          });
+
+          $(".signup").click(function(){
+          $(".signup-form").show();
+          $(".login-form").hide();
+          $(".login").css("background", "rgb(241,241,241)");
+          $(".signup").css("background", "#fff");
+          });
+
+            });
+      </script>
+    {% endblock %}

@@ -1,0 +1,117 @@
+::after,::before{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.display-4{
+    color: #0d0d0d;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+.display-5{
+    color: #0d0d0d;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+body{
+    background: rgb(243,251,254);
+}
+em{
+    color: red;
+}
+.pdf-saver{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+   
+}
+.pdf-saver button{
+    padding: .1rem 0.8rem;
+    justify-content: center;
+    align-items: center;
+}
+.pdf-saver svg{
+    margin-top: 0.2rem;
+}
+
+.student-details{
+    position: relative;
+    border: 1px solid black;   
+    border-radius: .5rem;
+}
+.student-profile{
+    float: right;
+    margin-right: 20%;
+    margin-top:2rem ;
+    
+}
+.student-profile img{
+    width: 6rem;
+    height: 6rem;
+}
+
+.form{
+    margin-top: 150px;
+    padding: 0 2rem ;
+    margin-bottom: 2rem;
+}
+.general-form{
+    margin-top: 4.5rem;
+}
+
+h4{
+    font-size: 1.3rem;
+    color: #3d9970;
+}
+.form-check{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+label{
+    color: #3d9970;
+    line-height: 1.3rem;
+}
+.form label{
+    color: #3d9970;
+    margin-bottom: .5rem;
+    display: inline-block;
+}
+.card{
+    background: none;
+    border: none;
+}
+.float-right{
+    background:red;
+    padding: 0.5rem;
+    
+    size: 1rem;
+}
+.label{
+    background: #7a9d96!important;
+    color: white;
+    position: absolute;
+    padding: 1rem;
+}
+
+.side-heading{
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<header>
+    <div class="header">
+      {% if session['loggedin'] %}
+      <div class=".text-info logged-in">
+        <i class="fas fa-user" aria-hidden="true"></i> {{session['username']}}
+      </div>
+      {% endif %}
+      JSS MAHAVIDYAPEETHA
+      <br>
+      JSS Science And Technology University
+    </div>
+
+    {% if back %}
+      <a href="{{ back }}" class="btn btn-outline-dark" id="back"><i class="fas fa-arrow-left"></i> Back</a>
+    {% endif %}
+    {% if logout %}
+      <a href="{{ logout }}" class="btn btn-outline-dark" id="Logout">Logout <i class="fas fa-sign-out-alt" ></i></a>
+    {% endif %}
+  </header>
+  {% if logout %}
+  <div style="height: 4rem;background-color: aliceblue;"></div>
+  {% endif %}

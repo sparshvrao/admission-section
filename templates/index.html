@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+    {% block stylesheets %}
+    <llink rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='loginpage.css')}}">
+    {% endblock %}
+    
+    
+    
+    
+    {% block main %}
+    
+    
+
+    
+    <form action="/index" method="POST" class="ml-5">
+        
+        <fieldset>
+            <legend _ngcontent-c1="" class="degree">Select Degree</legend>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Degree <span>*</span></label>
+                {{form.degree (class="form-control" ,id="exampleFormControlSelect1")}}
+                <br/>
+                {{form.submit}}
+              </div>
+        </fieldset>
+    </form> 
+
+    {% endblock %}
