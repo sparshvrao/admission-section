@@ -1,5 +1,5 @@
 body {
-    position: relative;
+    position: relative ;
     min-height: 100vh;
 }
 
@@ -10,7 +10,7 @@ body {
 }
 
 .heading {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid black !important;
 }
 
 #back{
@@ -31,9 +31,9 @@ body {
 }
 
 .header{
-    background-color:rgb(197, 197, 197);
-    font-size:2rem;
-    text-align: center;
+    background-color:rgb(197, 197, 197) !important;
+    font-size:2rem !important;
+    text-align: center !important;
 }
 
 .logged-in {

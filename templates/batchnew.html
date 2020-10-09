@@ -4,7 +4,8 @@
 
   {% block stylesheets %}
   <link rel="stylesheet" href="{{url_for('static',filename='batch.css')}}">
-  <link rel="stylesheet" href="{{url_for('static',filename='school.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='loginpage.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   {% endblock %}
   
   
@@ -18,7 +19,7 @@
 
     <!--  STUDENT DETAILS FORM  BEGINING  -->
 
-<form action="/BATCH" method="POST" novalidate>
+<form action="" method="POST"  id="batchform{{session['username']}}{{degree}}">
 
   <div class="text-center display-4">Student Details</div>
   <div class="container">
@@ -370,16 +371,7 @@
         <div class="form-row">
           <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
             <label for="Degree">Degree <em>*</em></label>
-            <select id="Degree" class="form-control" name="stu_degree"  required>
-              
-              <option selected value="BE">BE</option>
-              <option value="MBA">MBA</option>
-              <option value="M.Tech">M.Tech</option>
-              <option value="BCA"> BCA</option>
-              <option value="Ph.D">Ph.D</option>
-              <option value="MSC">M.sc</option>
-
-            </select>
+            <input type="text" readonly class="form-control" value="{{degree}}" name="stu_degree" required>
           </div>
           <div class="form-group col-md-6 col-sm-6 ng-star-inserted">
             <label for="Department">Department <em>*</em></label>
@@ -1393,17 +1385,20 @@
               
 
 
-
+              
       
 
 
     
   </div>
 
-
-    {{form.submit (class="Submit")}}
+    
   </form>
-
+  <div id="bottoms" height="50px" >
+    <button type="button" onclick="printel()"  id="printer">Print</button>
+    <button hidden type="button" onclick="savedata()"  id="save">Save</button>
+    {{form.submit (class="Submit")}}
+    </div>
 
     {% block other %}
 
@@ -1420,26 +1415,51 @@
         buttons[i].setAttribute("type","button");
       }
     </script>
+    
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+ 
     <script>
+      function printel(){
+        savedoc=document.getElementsByTagName("body")[0].innerHTML;
+        document.getElementsByTagName("body")[0].innerHTML=document.getElementById("batchform{{session['username']}}{{degree}}").innerHTML;
+        window.print();
+        document.getElementsByTagName("body")[0].innerHTML=savedoc;
+      }
+    </script>
+    <script>
+      var form=document.getElementById("batchform{{session['username']}}{{degree}}");
+        FormPersistence.persist(form,{saveOnSubmit:true,useSessionStorage:true});
+
       window.onload = (event) => {
+        
+        if("{{session['submitted']}}"=='yes'){
+          console.log("hellloooo");
+          window.alert("hellllo");
+          FormPersistence.clearStorage(form,{useSessionStorage:true});
+        }
         if(typeof(Storage)!="undefined"){
           console.log("Inside");
+          //FormPersistence.load(form,{useSessionStorage:true});
+
           var x;
-          if((x={{student_list|tojson}})!=null){
-            console.log("Got student dict");
-	          console.log("hello")
-	          for(var key in x){
-		        console.log(x[key]);
-  	        $("input[name="+key+"]").val(x[key]);
+          x={{student_list|safe}};
+          if(typeof(x)!=typeof(Object)){
+            x=JSON.parse(JSON.stringify(x));
+            console.log(x);
+            var formElement = document.getElementById('batchform{{degree}}');
+            (function () {
+            populatejs(x);
+          })();
           }
       }
-        }
+      
         else{
           console.log("Undefined");
         }
   
 };
-
+        
+        //FormPersistence.persist(form,{useSessionStorage:true,saveOnSubmit:true});
     </script>
     
     <script>

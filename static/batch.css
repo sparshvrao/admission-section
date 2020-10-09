@@ -1,8 +1,7 @@
-::after,::before{
+*{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
+
 }
 .display-4{
     color: #0d0d0d;
@@ -37,14 +36,14 @@ em{
     align-items: center;
    
 }
-.header{
+b.header{
     background: rgb(27,73,101);
     padding-top: 10px;
     padding-bottom: 10px;
     z-index: 10;
 }
 .heading{
-    color: white!important;
+    color: white;
     font-size: 1.5rem;
 
 }
@@ -110,14 +109,57 @@ label{
     display: inline-block;
 }
 
+#bottoms{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    padding-top: 0rem;
+    padding-bottom: 1rem;
+}
+
+#save{
+    position: fixed;
+    top:30%;
+    right:9%;
+    background-image: linear-gradient(to bottom right,rgb(4, 233, 4),rgb(114, 248, 114));
+    color: white;
+    float :left;
+    margin-left: 20%;
+    border-radius: 10%;
 
 
+}
 
+#printer{
+    background-image: linear-gradient(to bottom right,rgb(255, 72, 0),rgb(253, 121, 69));
+    color:white;
+    margin-left:20%;
+    border-radius:10%;
+}
 
+#bottoms .Submit{
+    background-color: #999999;
+    color: black;
+    float :right;
+    margin-right: 10%;
+    border-radius: 10%;
+    
+}
 
-@media only screen and (max-width: 770px) {
+#bottoms .Submit,#save,#printer{
+    height:40px;
+    width:7rem;
+    opacity: 0.7;
+}
+#bottoms .Submit:hover,#save:hover,#printer:hover{
+    opacity:1;
+    box-shadow: 3px 5px 5px rgb(253, 166, 115);
+}
+
+@media (max-width: 770px) {
     .heading{
-        color: white!important;
+        color: white;
         font-size: 0.9rem;
     
     }
