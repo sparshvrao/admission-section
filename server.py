@@ -405,6 +405,10 @@ def deleterow(tbname,colcheck,checkid):
 
 
 #Routes begin
+@app.route('/')
+def hello():
+    return redirect(url_for('login'))
+
 @app.route('/loginpage', methods=['GET', 'POST'])
 def login():
     form=LoginForm()
