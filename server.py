@@ -41,7 +41,6 @@ def listofusers():
     cursor.close()
     for user in users_data:
         users.append(user)
-    print(users)
     return users
     
 
@@ -70,7 +69,6 @@ def checkduplicate(res,state,id):
         
         if((len(p)>=1)):
             cursor.close()
-            print("hello")
             return True
         else:
             x=False
@@ -126,7 +124,6 @@ def selectquery(tbname,colcheck,checkid):
         query='''SELECT * FROM '''+tbname+''' WHERE '''+colcheck+'''='''+checkid
     else:
         query='''SELECT * FROM '''+tbname+''' WHERE '''+multiselectstring(colcheck,checkid)
-    print(query)
     selected=1
     try:
         cur=db.cursor()
@@ -146,7 +143,6 @@ def getresulttype(adnumber,degree):
     cur.execute("SELECT deg_resulttype from deg_details where stu_admissionnumber=%s and deg_degree=%s ",(adnumber,degree))
     result=list(cur.fetchone())
     cur.close()
-    print(result[0])
     return result[0]
     
 def formdetails():
