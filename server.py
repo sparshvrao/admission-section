@@ -254,17 +254,16 @@ def listofstudents():
         for stu in changer:
             stream.append(stu[-1])
             pucresulttype.append(stu[-2])
-            print(list(stu[:-2]),stream)
             stulist.append(list(stu[:-2]))
 
         for i in range(len(stulist)):
             adnumber=stulist[i][cols.index('stu_admissionnumber')]
             puord=stulist[i][cols.index('stu_puord')]
             degree=stulist[i][cols.index('stu_degree')]
-            print("hello")
+            
             #insert guardian details
             insert=selectquery('guardian_details','stu_admissionnumber',adnumber)[2:]
-            print(insert)
+            
             ind=cols.index('stu_guardian')+1
             count=len(insert)
             stulist[i][ind:ind]=insert
@@ -349,7 +348,7 @@ def listofstudents():
                 ind=len(stulist[i])
                 count+=len(insert)
                 stulist[i][ind:ind]=insert
-                print(stulist[i])
+                
             if(degree[0]!='B'):
                 #insert ug details
                 #insert ug address details
