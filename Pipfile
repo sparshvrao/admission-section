@@ -11,6 +11,7 @@ pymysql = "*"
 jinja2 = "*"
 werkzeug = "*"
 xlsxwriter = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
