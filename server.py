@@ -580,7 +580,8 @@ def studentlist():
                 try:
                     return send_from_directory(app.config["Excel"], filename="data.xlsx", as_attachment=True)
                 except FileNotFoundError:
-                    abort(404)
+                    print("hello")
+                    #abort(404)
             else:
                 studentid=request.form['Delete']
                 deletequery('student_details','stu_id',studentid)
@@ -825,5 +826,5 @@ def POSTER(degree=None,studentid=None):
 
 
 if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0',port=5000)
 
