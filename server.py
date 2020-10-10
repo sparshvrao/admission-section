@@ -7,11 +7,17 @@ from forms import *
 from werkzeug.security import generate_password_hash, check_password_hash
 from Workbook import allstudentdata
 
-
-HOST = 'localhost'                                            #Connect to db
-USER = 'root'
-PASSWORD = 'venku@123456A'
-DATABASE = 'lccsjce'
+env="global"
+if env=="local":
+    HOST = 'localhost'                                            #Connect to db
+    USER = 'root'
+    PASSWORD = 'venku@123456A'
+    DATABASE = 'lccsjce'
+else:
+    HOST = 'sql12.freemysqlhosting.net'                                            #Connect to db
+    USER = 'sql12369762'
+    PASSWORD = 'ExmRAQ7DPf'
+    DATABASE = 'sql12369762'
 
 db = pymysql.connect(host=HOST,user=USER,password=PASSWORD,db=DATABASE)
                             
