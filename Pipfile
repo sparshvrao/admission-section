@@ -12,6 +12,8 @@ jinja2 = "*"
 werkzeug = "*"
 xlsxwriter = "*"
 gunicorn = "*"
+flask-wtf = "*"
+wtforms = "*"
 
 [requires]
 python_version = "3.7"
