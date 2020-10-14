@@ -436,6 +436,8 @@ def login():
                         flash("Invalid username or password", "danger")
                 else:
                     flash("Invalid username or password", "danger")
+    if('loggedin' in session):
+        return redirect(url_for('logout'))
     return render_template('loginpage.html', form=form,register=url_for('register')) 
 
 @app.route('/logout')
