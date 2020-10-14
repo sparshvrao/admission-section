@@ -538,14 +538,17 @@ def studentlist():
     session['submitted']='no'
     session.pop('studentmodifydata',None)
     session.pop('degree',None)
-    students=listofstudents()
-    student_list=[]
+    query="Select stu_id,stu_name,stu_admissionnumber,stu_degree from student_details"
+    cursor=db.cursor()
+    cursor.execute(query)
+    student_list=list(cursor.fetchall())
+    cursor.close()
     '''with open('putter.txt','w+') as filehandle:
         for stu in students:
                 filehandle.write('%s\n'% stu)'''
-    for stu in students:
-        student_list.append([stu[0],stu[1],stu[58],stu[41],stu[41]])
-
+    '''for stu in students:
+        student_list.append([stu[0],stu[1],stu[58],stu[41]])
+    '''
     form=STUDENTLIST()
     if request.method=='POST':   
         if form.is_submitted():
@@ -573,7 +576,7 @@ def studentlist():
                 else:
                     return redirect(url_for('POSTER',degree=degree,studentid=studentid))
             elif('download' in request.form):
-                allstudentdata(formdetails(),students)
+                allstudentdata(formdetails(),listofstudents())
                 try:
                     return send_from_directory(app.config["Excel"], filename="data.xlsx", as_attachment=True)
                 except FileNotFoundError:
