@@ -5,18 +5,25 @@
         <i class="fas fa-user" aria-hidden="true"></i> {{session['username']}}
       </div>
       {% endif %}
-      JSS MAHAVIDYAPEETHA
-      <br>
-      JSS Science And Technology University
+      <div class="head-content">
+        <h1 class="white-font">JSS Mahavidyapeetha</h1>
+        <h1 class="white-font">JSS Science &amp; Technology University</h1>
+        <h1 class="white-font">Sri Jayachamarajendra College of Engineering</h1>
+        <hr style="width:40%;">
+        <h1 class="white-font">Admission &amp; Section</h1>
+      </div>
+
     </div>
 
-    {% if back %}
-      <a href="{{ back }}" class="btn btn-outline-dark" id="back"><i class="fas fa-arrow-left"></i> Back</a>
-    {% endif %}
-    {% if logout %}
-      <a href="{{ logout }}" class="btn btn-outline-dark" id="Logout">Logout <i class="fas fa-sign-out-alt" ></i></a>
-    {% endif %}
+
+
   </header>
+  {% if back %}
+  <a href="{{ back }}" class="btn btn-outline-dark" id="back"><i class="fas fa-arrow-left"></i> Back</a>
+{% endif %}
+{% if logout %}
+  <a href="{{ logout }}" class="btn btn-outline-dark" id="Logout">Logout <i class="fas fa-sign-out-alt" ></i></a>
+{% endif %}
   {% if logout %}
   <div style="height: 4rem;background-color: aliceblue;"></div>
   {% endif %}

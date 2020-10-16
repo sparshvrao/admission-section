@@ -30,10 +30,10 @@ body {
     background-image: linear-gradient(to right,rgb(252, 67, 11),red) !important;
 }
 
-.header{
-    background-color:rgb(197, 197, 197) !important;
-    font-size:2rem !important;
-    text-align: center !important;
+header{
+    /*background-color:rgb(197, 197, 197) !important;*/
+    font-size:2rem ;
+    text-align: center ;
 }
 
 .logged-in {
@@ -43,10 +43,71 @@ body {
   padding: 2px;
   margin: 5px;
 }
+/* header styles */
+
+header {
+  background-color: #1b4965;
+  clear: both;
+  display: block;
+  overflow: hidden;
+  color: #fff;
+}
+
+.head-content {
+  max-width: 1080px;
+  margin: 0 auto;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
+}
+hr{
+  background-color: whitesmoke;
+  color:white;
+}
+h1 {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 30px;
+  padding: 5px;
+  margin: 0px;
+}
+
+h2 {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 2px 0px 7px 0px;
+  margin: 0px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 8px;
+  padding: 2px;
+  margin: 0px;
+}
+
+h4 {
+  font-weight: 200;
+  font-size: 8px;
+  padding: 2px;
+  margin: 0px;
+}
+
+.green {
+  background: green;
+}
+
+.red {
+  background: #ee4a4a;
+}
 
 @media(max-width: 769px) {
-  .header {
-    font-size: 1.5rem;
+  header h1{
+    font-size:medium;
+  }
+  header h1:first-child{
+    font-size: large;
   }
   .logged-in {
     position: relative;
