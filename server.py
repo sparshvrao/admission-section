@@ -11,12 +11,12 @@ from Workbook import allstudentdata
 
 env="global"
 if env=="local":
-    HOST = 'localhost'                                            #Connect to db
+    HOST = 'localhost'                                           
     USER = 'root'
     PASSWORD = 'venku@123456A'
     DATABASE = 'lccsjce'
 else:
-    HOST = 'sql12.freemysqlhosting.net'                                            #Connect to db
+    HOST = 'sql12.freemysqlhosting.net'                                        
     USER = 'sql12375496'
     PASSWORD = 'MZWEI57Wb5'
     DATABASE = 'sql12375496'
