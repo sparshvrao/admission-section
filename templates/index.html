@@ -26,6 +26,8 @@
               </div>
         </fieldset>
     </form> 
-    <script>console.log(window.sessionStorage);</script>
+    <script>   
+            sessionStorage.removeItem("{{session['submitted']}}");
+    </script>
 
     {% endblock %}

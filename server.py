@@ -15,9 +15,9 @@ if env=="local":
     DATABASE = 'lccsjce'
 else:
     HOST = 'sql12.freemysqlhosting.net'                                            #Connect to db
-    USER = 'sql12371182'
-    PASSWORD = 'sK5UnVVHlH'
-    DATABASE = 'sql12371182'
+    USER = 'sql12372702'
+    PASSWORD = 'FLZp9v2n4l'
+    DATABASE = 'sql12372702'
 
 db = pymysql.connect(host=HOST,user=USER,password=PASSWORD,db=DATABASE)
                             
@@ -120,10 +120,19 @@ def deletequery(tbname,colcheck,checkid):
         print(e)
         exit
 def selectquery(tbname,colcheck,checkid):
+
+
     if(type(colcheck)==type("string")):
         query='''SELECT * FROM '''+tbname+''' WHERE '''+colcheck+'''='''+checkid
     else:
         query='''SELECT * FROM '''+tbname+''' WHERE '''+multiselectstring(colcheck,checkid)
+    if('years' in session and len(session.get('years'))>0):
+        cur=db.cursor()
+        cur.execute("Select stu_admissionnumber from student_details where stu_academicyear in "+str(session.get('years')))
+        allstudents=tuple(tuple[0] for tuple in cur.fetchall())
+        cur.close()
+        query+=''' AND stu_admissionnumber in ''' +str(allstudents)
+        print(query)
     selected=1
     try:
         cur=db.cursor()
@@ -138,6 +147,9 @@ def selectquery(tbname,colcheck,checkid):
         exit
 
     return list(selected[0])
+
+
+
 def getresulttype(adnumber,degree):
     cur=db.cursor()
     cur.execute("SELECT deg_resulttype from deg_details where stu_admissionnumber=%s and deg_degree=%s ",(adnumber,degree))
@@ -245,7 +257,7 @@ def listofstudents():
     pucresulttype=[]
 
 
-    query="SELECT * FROM student_details"
+    query="SELECT * FROM student_details where stu_academicyear in "+str(session.get('years'))
     try:
         cursor=db.cursor()
         cursor.execute(query)
@@ -535,7 +547,6 @@ def userlist():
 def studentlist():
     if not session.get('Admin'):
         return redirect(url_for('login'))
-    session['submitted']='no'
     session.pop('studentmodifydata',None)
     session.pop('degree',None)
     query="Select stu_id,stu_name,stu_admissionnumber,stu_degree from student_details"
@@ -576,6 +587,7 @@ def studentlist():
                 else:
                     return redirect(url_for('POSTER',degree=degree,studentid=studentid))
             elif('download' in request.form):
+                session['years']=('2020-21','2018-19')
                 allstudentdata(formdetails(),listofstudents())
                 try:
                     return send_from_directory(app.config["Excel"], filename="data.xlsx", as_attachment=True)
@@ -593,7 +605,7 @@ def studentlist():
 def index():
     if not session.get('loggedin'):
         return redirect(url_for('login'))
-    session['submitted']='no'
+    #session['submitted']='no'
     back=url_for('logout')
     logout=url_for('logout')
     if('Admin' in session):
@@ -620,6 +632,7 @@ def BATCH(degree=None,studentid=None):
     student_list=None
     if(degree is not None):
         session['degree']=degree
+    session['submitted']='no'
     id=0
     flag=0
     adnumber=1
@@ -662,9 +675,9 @@ def BATCH(degree=None,studentid=None):
                 status=checkput(res)
                 if(status==True):
                     db.commit()
-                    session['submitted']='yes'
+                    session['submitted']='form#batchform'+session['username']+session['degree']
                     
-                    render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
                     session.pop('degree',None)
                     print(session)
                     if('Admin' not in session):
@@ -690,6 +703,9 @@ def BATCH(degree=None,studentid=None):
 @app.route('/MASTER/<degree>/<studentid>',methods=['GET','POST'])
 def MASTER(degree=None,studentid=None):
     student_list=None
+    if(degree is not None):
+        session['degree']=degree
+    session['submitted']='no'
     id=0
     flag=0
     adnumber=1
@@ -732,8 +748,9 @@ def MASTER(degree=None,studentid=None):
                 status=checkput(res)
                 if(status==True):
                     db.commit()
-                    session['submitted']='yes'
-                    render_template('master.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+                    session['submitted']='form#batchform'+session['username']+session['degree']
+                    
+                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
                     session.pop('degree',None)
                     print(session)
                     if('Admin' not in session):
@@ -759,6 +776,9 @@ def MASTER(degree=None,studentid=None):
 @app.route('/POSTER/<degree>/<studentid>',methods=['GET','POST'])
 def POSTER(degree=None,studentid=None):
     student_list=None
+    if(degree is not None):
+        session['degree']=degree
+    session['submitted']='no'
     id=0
     flag=0
     adnumber=1
@@ -800,9 +820,10 @@ def POSTER(degree=None,studentid=None):
                 flag=0
                 status=checkput(res)
                 if(status==True):
-                    session['submitted']='yes'
                     db.commit()
-                    render_template('poster.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+                    session['submitted']='form#batchform'+session['username']+session['degree']
+                    
+                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
                     session.pop('degree',None)
                     print(session)
                     if('Admin' not in session):
