@@ -71,6 +71,8 @@ function populate(form, data, basename) {
 			case 'date':
       			element.value = new Date(value).toISOString().split('T')[0];	
 				break;
+			case 'file':
+				break;
 		}
 
 	}

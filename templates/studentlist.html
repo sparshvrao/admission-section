@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
     {% block stylesheet %}
-    <style type="text/css">
+    <style>
         h3 span {
             font-size: 22px;
         }
@@ -102,8 +102,98 @@
         background-color: #1B4965;
         color: #ffffff;
     }
+
     </style>
 
+    {% endblock %}
+
+    {% block stylesheets %}
+    <style>
+    .dropdown{
+        display: block;
+    }
+    .dropdownct{
+        display: none;
+    }
+    .dropdown:hover .dropdownct{
+        display: block;
+        z-index:5;
+    }
+    .downloads:hover .downloads{
+        background-color: #add8e6;
+    }
+
+    @media all{
+    .nav-item {
+        float:left;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-link{
+        align-items: center;
+        justify-content: center;
+    }
+    .dropdown-menu{
+        margin-top:25px;
+        margin-left:10%;
+        width:170px;
+    }
+    .dropdown-menu label{
+        margin-left:20px;
+    }
+    .dropdown-menu input{
+        margin-left:10px;
+    }
+    ul button{
+        margin-left: 20% !important;
+    }
+    #ddlYear{
+        margin-left:18px;
+    }
+    .nav-link{
+        margin:0;
+        padding:0;
+        margin-top:0.5rem;
+        margin-left:3rem;
+
+
+    }
+	 .nav-item .dropdown-menu{ display: none; }
+	 .nav-item:hover .nav-link{ color: rgb(6, 114, 255); }
+	 .nav-item:hover .dropdown-menu{ display: block; }
+	 .nav-item .dropdown-menu{ margin-top:0; }
+}	
+    @media(max-width: 769px){
+        table{
+            min-width:0px !important;
+            max-width: 20px !important;
+        }
+        thead tr th:nth-child(1){
+            width:10% !important;
+        }
+        thead tr th:last-child(){
+            display: none !important;
+        }
+        body  div.container  div  table  tbody  td:nth-child(2){
+            max-width:10px;
+            word-wrap: break-word;
+        }
+        #modifybn{
+            height:30px;
+            width:30px;
+            border-radius: 50%;
+            overflow:hidden;
+            display: block;
+        }
+        #deletebn{
+            margin-top:10px;
+            height:30px;
+            width:30px;
+            border-radius: 50%;
+            overflow:hidden;
+        }
+    }
+    </style>
     {% endblock %}
     {% block main%}
     <div class="container">
@@ -113,11 +203,36 @@
         <form action="/studentlist" method="POST">
         <button style="float:left;margin-left:1rem;margin-top:0.5rem;" name="add" ><i class="fas fa-user-plus"></i>Add</button>
         </form>
-        <form action="/studentlist" method="POST">
-            <button style="float:left;margin-left:1rem;margin-top:0.5rem;" name="download" ><i class="fas fa-download"></i>Download</button>
-        </form>
+        <!--<div class="dropdown">
+            <button class="downloads">Downloads</button>
+            <div  class="dropdownct" >
+              <input type ="radio" name="common" id="yearwise" onclick="javascript:checkVisibility();"><label for="yearwise">Yearwise</label>
+                <div id="years" style="visibility:hidden">From <select id="ddlYears"></select> To <select id="ddlYear"></select></div>
+              <input type="radio" name="common" id="all" onclick="javascript:checkVisibility();" checked="checked"><label for="all">ALL</label>
+                <div> <a href=""><button>Download</button> </a></div>
+            </div>
+          </div>-->
+          <div class="nav-item dropdown" onclick="" style="width:auto;" >
+                <form action="/studentlist" method="POST">
+                    <div   class="nav-link  dropdown-toggle"   data-toggle="dropdown">  Downloads  </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <input type ="radio" name="common" value="yearwise" id="yearwise" onclick="javascript:checkVisibility();"><label for="yearwise">Yearwise</label>
+                            <div id="years" style="display:none;"> &nbsp; &nbsp;From <select onchange="toyear()" name="from" id="ddlYears"></select><br />  &nbsp; &nbsp;To <select name="to" id="ddlYear"></select></div>
+                        </li>
+                        <li>
+                            <input type="radio" name="common" value="all" id="all" onclick="javascript:checkVisibility();" checked="checked"><label for="all">ALL</label>
+                        </li>
+                        
+                            <button style="margin-top:0.5rem;" name="download" ><i class="fas fa-download"></i>Download</button>
+                        
+                    </ul>
+                </form>
+
+            </div>
+
         <br></br>
-        <table class="table table-striped mt32 customers-list">
+        <table class="table table-striped  customers-list">
 
             <thead>
                     <tr><th>Admission Number</th>
@@ -142,6 +257,7 @@
                 
 
     </div>
+    <br />
 </div>
 
  {% endblock %}
@@ -192,6 +308,62 @@
             sessionStorage.removeItem("{{session['submitted']}}");
        
     </script>
+            <script>
+                function checkVisibility(){
+                  if (document.getElementById('yearwise').checked){
+                    document.getElementById('years').style.display='block';
+                    document.getElementById('allcheck').style.display='none';
+                  }
+   
+                  else{
+                    document.getElementById('years').style.display='none';
+                    document.getElementById('allcheck').style.display='block';
+                  }
+                }
+
+                function displayer(element){
+                    var element=document.getElementsByClassName('dropdown-menu')[0];
+                    if(element.display=='none'){
+                        element.display='block';
+                    }
+                    else{
+                        element.display='none';
+                    }
+
+                }
+           </script>
+   
+   <script type="text/javascript">
+       window.onload = function () {
+           var ddlYears = document.getElementById("ddlYears");
+       
+       var d = new Date();
+           for (var i = 1950; i <= d.getFullYear(); i++) {
+               var option = document.createElement("OPTION");
+               option.innerHTML =String(i)+'-'+String(i+1).slice(-2);
+               option.value = String(i);
+           console.log(option.value);
+           ddlYears.appendChild(option);
+           }
+       };
+
+       function toyear(){
+        var d = new Date();
+        var ddlYear = document.getElementById("ddlYear");
+        var ddlYears = document.getElementById("ddlYears");
+        console.log(parseInt(ddlYears.value));
+        ddlYear.innerHTML='';
+           for(var i= parseInt(ddlYears.value);i<=d.getFullYear();i++){
+               console.log(i);
+                var option1=document.createElement("OPTION");
+               option1.innerHTML = String(i)+'-'+String(i+1).slice(-2);
+               option1.value = String(i);
+               ddlYear.appendChild(option1);
+           }
+       }
+   
+   
+   </script>
 
 
     {% endblock %}

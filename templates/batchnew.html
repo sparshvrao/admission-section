@@ -19,16 +19,22 @@
 
     <!--  STUDENT DETAILS FORM  BEGINING  -->
 
-<form action="" method="POST"  id="batchform{{session['username']}}{{degree}}" novalidate>
+<form action="" method="POST" enctype="multipart/form-data" id="batchform{{session['username']}}{{degree}}" novalidate>
 
   <div class="text-center display-4">Student Details</div>
   <div class="container">
-      
+
           <div class="student-details">
-                  
+            <div style="float:right;display: inline-flex;">
               <div class="student-profile">
-                  <img src="images/student-profile.jpg" alt="">
+                <p><input type="file"   accept="image/jpeg, image/png" name="stu_image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+                
+                <p ><img   id="output"  /></p>  
+                <button  type="button"><label for="file" style="cursor: pointer;">Upload Image</label></button>
               </div>
+            </div>
+
+
       <!-- FORM  -->
               <div action="" method="POST" class="form">
                   <!-- first row fields-->
@@ -1395,7 +1401,7 @@
     
   </form>
   <div id="bottoms" height="50px" >
-    <button type="button" onclick="window.print()"  id="printer">Print</button>
+    <button type="button" onclick="printpage(this)"  id="printer">Print</button>
     <button hidden type="button" onclick="savedata()"  id="save">Save</button>
     {{form.submit (class="Submit")}}
     </div>
@@ -1414,6 +1420,16 @@
       for(var i=0;i<buttons.length;i++){
         buttons[i].setAttribute("type","button");
       }
+      var uploadField = document.getElementById("file");
+
+      uploadField.onchange = function() {
+          if(this.files[0].size > 2097152){
+            alert("File is too big!");
+            this.value = "";
+          }else{
+            loadFile(event);
+          }
+      };
     </script>
     
     <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
@@ -1443,6 +1459,8 @@
 
           var x;
           x={{student_list|safe}};
+          
+          console.log(typeof(x));
           if(typeof(x)!=typeof(Object)){
             x=JSON.parse(JSON.stringify(x));
             console.log(x);
@@ -1450,6 +1468,10 @@
             (function () {
             populatejs(x);
           })();
+          {% if student_list %}
+          document.getElementById('output').src="{{url_for('static',filename='images/'+student_list['stu_image'])}}";
+          {% endif %}
+
           }
       }
       
@@ -1461,7 +1483,14 @@
         
         //FormPersistence.persist(form,{useSessionStorage:true,saveOnSubmit:true});
     </script>
-    
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+      //For printing page
+      function printpage(event){
+        window.location.href="{{url_for('printer',degree=degree)}}";
+
+      }
+    </script>
     <script>
       //show and hide guardian details
       function showGuardian(X){
@@ -1881,10 +1910,39 @@
         }
 
       }
-
+      var loadFile = function(event) {
+	    var image = document.getElementById('output');
+	    image.src = URL.createObjectURL(event.target.files[0]);
+      }
     </script>
 
-      
+      <script>
+        var elephant = document.getElementById("output");
+
+// Take action when the image has loaded
+elephant.addEventListener("load", function () {
+    var imgCanvas = document.createElement("canvas"),
+        imgContext = imgCanvas.getContext("2d");
+
+    // Make sure canvas is as big as the picture
+    imgCanvas.width = elephant.width;
+    imgCanvas.height = elephant.height;
+
+    // Draw image into canvas element
+    imgContext.drawImage(elephant, 0, 0, elephant.width, elephant.height);
+
+    // Get canvas contents as a data URL
+    var imgAsDataURL = imgCanvas.toDataURL("image/png");
+
+    // Save image into localStorage
+    try {
+        localStorage.setItem("elephant", imgAsDataURL);
+    }
+    catch (e) {
+        console.log("Storage failed: " + e);
+    }
+}, false); 
+      </script>
     
 
     {% block scriptsadd %}

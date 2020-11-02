@@ -5,7 +5,9 @@ import json
 from functions import *
 from forms import *
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from Workbook import allstudentdata
+
 
 env="global"
 if env=="local":
@@ -15,9 +17,9 @@ if env=="local":
     DATABASE = 'lccsjce'
 else:
     HOST = 'sql12.freemysqlhosting.net'                                            #Connect to db
-    USER = 'sql12372702'
-    PASSWORD = 'FLZp9v2n4l'
-    DATABASE = 'sql12372702'
+    USER = 'sql12374041'
+    PASSWORD = 'XXuSAGCGf4'
+    DATABASE = 'sql12374041'
 
 db = pymysql.connect(host=HOST,user=USER,password=PASSWORD,db=DATABASE)
                             
@@ -31,7 +33,7 @@ else:
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'LCCSJCE'
 app.config['Excel']="static/excel"
-
+app.config['Upload_image']='static/images'
           
 def listofusers():    
     users = [(0,'Admin','1234')]                      #Get list of users
@@ -165,13 +167,23 @@ def formdetails():
             formlist.append(changer)
     formlist=formlist[:-1]
     return formlist
-def checkput(res):
+def checkput(res,photo):
     sdcols=getcols('student_details')[1:]
     columns=list(res.keys())
     '''with open('data.txt','w+') as filehandle:
         for col in columns:
             filehandle.write('%s\n'%col)'''
     vals=list(res.values())
+
+    #saving photo in the static/images folder
+    if(type(photo) is not type("string")):
+        photo.save(os.path.join(app.config['Upload_image'],str(vals[columns.index('stu_admissionnumber')])+'.'+photo.mimetype[6:]))
+        vals.insert(0,str(vals[columns.index('stu_admissionnumber')])+'.'+photo.mimetype[6:])
+        columns.insert(0,'stu_image')
+    else:
+        print("inmodify")
+        vals[0]=photo
+    
     adnumber=vals[columns.index('stu_admissionnumber')]
     try:
         changer=sdcols.index('stu_guardian')+1
@@ -257,7 +269,9 @@ def listofstudents():
     pucresulttype=[]
 
 
-    query="SELECT * FROM student_details where stu_academicyear in "+str(session.get('years'))
+    query="SELECT * FROM student_details"
+    if('years' in session):
+        query+=" where stu_academicyear in "+str(session.get('years'))
     try:
         cursor=db.cursor()
         cursor.execute(query)
@@ -573,13 +587,6 @@ def studentlist():
                 degree=degree[degree.index(',')+1:degree.index(']')]
                 session['studentmodifydata']=studentid
                 session['degree']=degree
-                '''for stu in students:
-                    if str(stu[0])==str(studentid):
-                        vals=stu[1:]
-                        cols=formdetails()
-                        finaldata=dict(zip(cols,vals))
-                        print(finaldata)
-                        break'''
                 if(degree[0]=='B'):
                     return redirect(url_for('BATCH',degree=degree,studentid=studentid))
                 elif(degree[0]=='M'):
@@ -587,15 +594,33 @@ def studentlist():
                 else:
                     return redirect(url_for('POSTER',degree=degree,studentid=studentid))
             elif('download' in request.form):
-                session['years']=('2020-21','2018-19')
+                if(request.form['common']=='all'):
+                    pass
+                else:
+                    fromyear=int(request.form['from'])
+                    toyear=int(request.form['to'])
+                    yearlist=[]
+                    for i in range(fromyear,toyear+1):
+                        yearlist.append(str(i)+'-'+str(i+1)[-2:])
+                    session['years']=tuple(yearlist)
+                print(session)
                 allstudentdata(formdetails(),listofstudents())
+                if('years' in session):
+                    session.pop('years',None)
                 try:
                     return send_from_directory(app.config["Excel"], filename="data.xlsx", as_attachment=True)
                 except FileNotFoundError:
-                    print("hello")
+                    print("File Not Found")
                     #abort(404)
             else:
                 studentid=request.form['Delete']
+                cur=db.cursor()
+                cur.execute("Select stu_image from student_details where stu_id=%s",studentid)
+                imgname=cur.fetchone()[0]
+                print(app.config['Upload_image']+'/'+imgname)
+                if os.path.exists(app.config['Upload_image']+'/'+imgname):
+                    print("deleted photo")
+                    os.remove(app.config['Upload_image']+'/'+imgname)
                 deletequery('student_details','stu_id',studentid)
                 return redirect(url_for('studentlist'))
 
@@ -624,227 +649,107 @@ def index():
                 return redirect(url_for('POSTER',degree=degree))
     return render_template('index.html',form=form,back=back,logout=logout)
 
+def dosomestuff(page,degree=None,studentid=None):
+    student_list=None
+    if(degree is not None):
+        session['degree']=degree
+    session['submitted']='no'
+    id,flag,photo=0,0,0
+    if (degree!=None) and ('Admin' in session) and ('studentmodifydata' in session) :
+        students=listofstudents()
+        
+        for stu in students:
+            if str(stu[0])==str(studentid):
+                vals=stu[1:]
+                cols=formdetails()
+                student_list=dict(zip(cols,vals))
+                #user_image=os.path.join(app.config['Upload_image'], student_list['stu_image'])
+                break
+    if not session.get('loggedin'):
+        return redirect(url_for('login'))
+    back=url_for('index')
+    if('studentmodifydata' in session):
+        back=url_for('studentlist')
+    logout=url_for('logout')
+    form=BASICForm()
+    if request.method=="POST":
+        if form.is_submitted:
+            res=request.form
+            if ('studentmodifydata' not in session and 'stu_image' not in request.files):
+                flash('Please Upload your Photo',"danger")
+                return redirect(request.url)
+            elif('stu_image' in request.files):
+                photo=request.files['stu_image']
+            else:
+                photo=student_list['stu_image']
+            if('studentmodifydata' in session):
+                id=checkduplicate(res,'modify',studentid)
+                if(id==True):
+                    flash("Please change the Admission Number.It already has been assigned.","danger")
+                else:
+                    id=studentid
+                    deleterow('student_details','stu_id',id)
+                    flag=1
+            else:
+                if(checkduplicate(res,'add',studentid)):
+                    print(session)
+                    flash("Please change the Admission Number.It already has been assigned.","danger")
+                else:
+                    flag=1
+            if(flag==1):
+                flag=0
+                status=checkput(res,photo)
+                if(status==True):
+                    db.commit()
+                    session['submitted']='form#batchform'+session['username']+session['degree']
+                    
+                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+                    session.pop('degree',None)
+                    print(session)
+                    if('Admin' not in session):
+                        
+                        flash("Successfully Added Student","success")
+                        return redirect(url_for('index'))
+                    else:
+                        if('studentmodifydata' in session):
+                            string="Successfully Modified Student Detail"
+                            flash(string,"success")
+                            return redirect(url_for('studentlist'))
+                        else:
+                            flash("Successfully Added Student","success")
+                            return redirect(url_for('studentlist'))
+                else:
+                    db.rollback()
+                    
+                    flash("Error in Inserting the details.Please try Again","danger")
+    if(page==1):
+        return render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+    elif(page==2):
+        return render_template('master.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+    else:
+        return render_template('poster.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
 
 @app.route('/BATCH',methods=['GET','POST'])
 @app.route('/BATCH/<degree>',methods=['GET','POST'])
 @app.route('/BATCH/<degree>/<studentid>',methods=['GET','POST'])
 def BATCH(degree=None,studentid=None):
-    student_list=None
-    if(degree is not None):
-        session['degree']=degree
-    session['submitted']='no'
-    id=0
-    flag=0
-    adnumber=1
-    if (degree!=None) and ('Admin' in session) and ('studentmodifydata' in session) :
-        students=listofstudents()
-        
-        for stu in students:
-            if str(stu[0])==str(studentid):
-                adnumber=stu[58]
-                vals=stu[1:]
-                cols=formdetails()
-                student_list=dict(zip(cols,vals))
-                break
-    if not session.get('loggedin'):
-        return redirect(url_for('login'))
-    back=url_for('index')
-    if('studentmodifydata' in session):
-        back=url_for('studentlist')
-    logout=url_for('logout')
-    form=BASICForm()
-    if request.method=="POST":
-        if form.is_submitted:
-            res=request.form
-            if('studentmodifydata' in session):
-                id=checkduplicate(res,'modify',studentid)
-                if(id==True):
-                    flash("Please change the Admission Number.It already has been assigned.","danger")
-                else:
-                    id=studentid
-                    deleterow('student_details','stu_id',id)
-                    flag=1
-            else:
-                if(checkduplicate(res,'add',studentid)):
-                    print(session)
-                    flash("Please change the Admission Number.It already has been assigned.","danger")
-                else:
-                    flag=1
-            if(flag==1):
-                flag=0
-                status=checkput(res)
-                if(status==True):
-                    db.commit()
-                    session['submitted']='form#batchform'+session['username']+session['degree']
-                    
-                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
-                    session.pop('degree',None)
-                    print(session)
-                    if('Admin' not in session):
-                        
-                        flash("Successfully Added Student","success")
-                        return redirect(url_for('index'))
-                    else:
-                        if('studentmodifydata' in session):
-                            string="Successfully Modified Student Detail"
-                            flash(string,"success")
-                            return redirect(url_for('studentlist'))
-                        else:
-                            flash("Successfully Added Student","success")
-                            return redirect(url_for('studentlist'))
-                else:
-                    db.rollback()
-                    
-                    flash("Error in Inserting the details.Please try Again","danger")
-    return render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+    return dosomestuff(1,degree,studentid)
 
 @app.route('/MASTER',methods=['GET','POST'])
 @app.route('/MASTER/<degree>',methods=['GET','POST'])
 @app.route('/MASTER/<degree>/<studentid>',methods=['GET','POST'])
 def MASTER(degree=None,studentid=None):
-    student_list=None
-    if(degree is not None):
-        session['degree']=degree
-    session['submitted']='no'
-    id=0
-    flag=0
-    adnumber=1
-    if (degree!=None) and ('Admin' in session) and ('studentmodifydata' in session) :
-        students=listofstudents()
-        
-        for stu in students:
-            if str(stu[0])==str(studentid):
-                adnumber=stu[58]
-                vals=stu[1:]
-                cols=formdetails()
-                student_list=dict(zip(cols,vals))
-                break
-    if not session.get('loggedin'):
-        return redirect(url_for('login'))
-    back=url_for('index')
-    if('studentmodifydata' in session):
-        back=url_for('studentlist')
-    logout=url_for('logout')
-    form=BASICForm()
-    if request.method=="POST":
-        if form.is_submitted:
-            res=request.form
-            if('studentmodifydata' in session):
-                id=checkduplicate(res,'modify',studentid)
-                if(id==True):
-                    flash("Please change the Admission Number.It already has been assigned.","danger")
-                else:
-                    id=studentid
-                    deleterow('student_details','stu_id',id)
-                    flag=1
-            else:
-                if(checkduplicate(res,'add',studentid)):
-                    print(session)
-                    flash("Please change the Admission Number.It already has been assigned.","danger")
-                else:
-                    flag=1
-            if(flag==1):
-                flag=0
-                status=checkput(res)
-                if(status==True):
-                    db.commit()
-                    session['submitted']='form#batchform'+session['username']+session['degree']
-                    
-                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
-                    session.pop('degree',None)
-                    print(session)
-                    if('Admin' not in session):
-                        
-                        flash("Successfully Added Student","success")
-                        return redirect(url_for('index'))
-                    else:
-                        if('studentmodifydata' in session):
-                            string="Successfully Modified Student Detail"
-                            flash(string,"success")
-                            return redirect(url_for('studentlist'))
-                        else:
-                            flash("Successfully Added Student","success")
-                            return redirect(url_for('studentlist'))
-                else:
-                    db.rollback()
-                    
-                    flash("Error in Inserting the details.Please try Again","danger")
-    return render_template('master.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+    return dosomestuff(2,degree,studentid)
 
 @app.route('/POSTER',methods=['GET','POST'])
 @app.route('/POSTER/<degree>',methods=['GET','POST'])
 @app.route('/POSTER/<degree>/<studentid>',methods=['GET','POST'])
 def POSTER(degree=None,studentid=None):
-    student_list=None
-    if(degree is not None):
-        session['degree']=degree
-    session['submitted']='no'
-    id=0
-    flag=0
-    adnumber=1
-    if (degree!=None) and ('Admin' in session) and ('studentmodifydata' in session) :
-        students=listofstudents()
-        
-        for stu in students:
-            if str(stu[0])==str(studentid):
-                adnumber=stu[58]
-                vals=stu[1:]
-                cols=formdetails()
-                student_list=dict(zip(cols,vals))
-                break
-    if not session.get('loggedin'):
-        return redirect(url_for('login'))
-    back=url_for('index')
-    if('studentmodifydata' in session):
-        back=url_for('studentlist')
-    logout=url_for('logout')
-    form=BASICForm()
-    if request.method=="POST":
-        if form.is_submitted:
-            res=request.form
-            if('studentmodifydata' in session):
-                id=checkduplicate(res,'modify',studentid)
-                if(id==True):
-                    flash("Please change the Admission Number.It already has been assigned.","danger")
-                else:
-                    id=studentid
-                    deleterow('student_details','stu_id',id)
-                    flag=1
-            else:
-                if(checkduplicate(res,'add',studentid)):
-                    print(session)
-                    flash("Please change the Admission Number.It already has been assigned.","danger")
-                else:
-                    flag=1
-            if(flag==1):
-                flag=0
-                status=checkput(res)
-                if(status==True):
-                    db.commit()
-                    session['submitted']='form#batchform'+session['username']+session['degree']
-                    
-                    #render_template('batchnew.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
-                    session.pop('degree',None)
-                    print(session)
-                    if('Admin' not in session):
-                        
-                        flash("Successfully Added Student","success")
-                        return redirect(url_for('index'))
-                    else:
-                        if('studentmodifydata' in session):
-                            string="Successfully Modified Student Detail"
-                            flash(string,"success")
-                            return redirect(url_for('studentlist'))
-                        else:
-                            flash("Successfully Added Student","success")
-                            return redirect(url_for('studentlist'))
-                else:
-                    db.rollback()
-                    
-                    flash("Error in Inserting the details.Please try Again","danger")
-    return render_template('poster.html',student_list=student_list,degree=degree,form=form,back=back,logout=logout)
+    return dosomestuff(3,degree,studentid)
 
-
+@app.route('/printer/<degree>',methods=['GET','POST'])
+def printer(degree):
+    return render_template('printpage.html',degree=degree)
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')

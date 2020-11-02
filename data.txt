@@ -1,3 +1,4 @@
+stu_image
 stu_name
 stu_dob
 stu_gender
