@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<html>
+<style>.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}</style>
+<div style="display: flex;flex-direction: column;">
+<img src="{{url_for('static',filename='logo.png')}}" style="width: 250px !important;" height=110px  alt="logo" class="center" >
+<h2 style="text-align: center;z-index:100;text-decoration: underline;">JSS SCIENCE AND TECHNOLOGY UNIVERSITY,MYSURU-570006</h2>
+</div>
+<body style="margin: 0;" onload='updateFDFXFA()'>
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+	<style>
+input {
+  border-style: solid;
+  border-width: 1px;
+}
+
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+</style>
+<script src="{{url_for('static',filename='populate.js')}}"></script>
+<script src="{{url_for('static',filename='populatejs.min.js')}}"></script>
+<script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
+
+<script>
+	window.onload = (event) => {
+	  var formdata=window.sessionStorage.getItem("form#batchform{{session['username']}}{{degree}}");
+	  formdata=JSON.parse(formdata);
+	  console.log(localStorage);
+	  const recentImageUrl = localStorage.getItem('elephant');
+			if(recentImageUrl){
+				document.querySelector('#output').setAttribute("src",recentImageUrl);
+			}
+		//var x;
+		//x={{student_list|safe}};
+		
+		//console.log(typeof(x));
+		if(true){
+		  //x=JSON.parse(JSON.stringify(x));
+		  //console.log(x);
+		  var formElement = document.getElementsByTagName('form');
+		  for(var i=0;i<formElement.length;i++){
+		FormPersistence.load(formElement[i],{uuid:"batchform{{session['username']}}{{degree}}",useSessionStorage:true});
+	}
+		{% if student_list %}
+		document.getElementById('output').src="{{url_for('static',filename='images/'+student_list['stu_image'])}}";
+		{% endif %}
+		window.print();
+		//var pagelink=window.location.href.slice(0,window.location.href.lastIndexOf('/'));
+		//window.location.href=pagelink.slice(0,window.location.href.lastIndexOf('/'));
+		}
+	
+	  else{
+		console.log("Undefined");
+	  }
+
+};
+	  
+	  //FormPersistence.persist(form,{useSessionStorage:true,saveOnSubmit:true});
+  </script>
+
+
+<script type="text/javascript" src="js/EcmaJSAPI.js"></script>
+<script type="text/javascript" src="js/EcmaParser.js"></script>
+
+<div id="p1" class="pageArea" style="overflow: hidden; position: relative; width: 935px; height: 1210px;margin-top:-80px;margin-left:auto; margin-right:auto; background-color: white;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	transform-origin: bottom left;
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_1{left:108px;bottom:932px;letter-spacing:0.11px;}
+#t2_1{left:155px;bottom:932px;letter-spacing:0.1px;}
+#t3_1{left:601px;bottom:556px;letter-spacing:0.09px;}
+#t4_1{left:601px;bottom:540px;letter-spacing:0.07px;}
+#t5_1{left:601px;bottom:510px;letter-spacing:0.09px;}
+#t6_1{left:601px;bottom:494px;letter-spacing:0.09px;}
+#t7_1{left:344px;bottom:428px;letter-spacing:0.08px;}
+#t8_1{left:601px;bottom:428px;letter-spacing:0.06px;}
+#t9_1{left:601px;bottom:412px;letter-spacing:0.07px;}
+#ta_1{left:117px;bottom:373px;letter-spacing:0.07px;}
+#tb_1{left:389px;bottom:373px;letter-spacing:0.07px;}
+#tc_1{left:287px;bottom:373px;letter-spacing:0.09px;}
+#td_1{left:529px;bottom:373px;}
+#te_1{left:601px;bottom:373px;letter-spacing:0.07px;}
+#tf_1{left:117px;bottom:316px;letter-spacing:0.24px;}
+#tg_1{left:117px;bottom:260px;letter-spacing:0.21px;}
+#th_1{left:117px;bottom:197px;letter-spacing:0.19px;}
+#ti_1{left:601px;bottom:318px;letter-spacing:0.07px;}
+#tj_1{left:601px;bottom:262px;letter-spacing:0.06px;}
+#tk_1{left:601px;bottom:199px;letter-spacing:0.06px;}
+#tl_1{left:117px;bottom:140px;letter-spacing:-0.13px;}
+#tm_1{left:117px;bottom:133px;letter-spacing:-0.13px;}
+#tn_1{left:601px;bottom:602px;letter-spacing:0.07px;}
+#to_1{left:601px;bottom:586px;letter-spacing:0.06px;}
+#tp_1{left:483px;bottom:547px;letter-spacing:0.08px;}
+#tq_1{left:314px;bottom:547px;letter-spacing:0.07px;}
+#tr_1{left:117px;bottom:547px;letter-spacing:0.07px;}
+#ts_1{left:314px;bottom:602px;letter-spacing:0.07px;}
+#tt_1{left:107px;bottom:839px;letter-spacing:0.28px;}
+#tu_1{left:110px;bottom:775px;letter-spacing:0.29px;}
+#tv_1{left:601px;bottom:474px;letter-spacing:0.07px;}
+#tw_1{left:601px;bottom:458px;letter-spacing:0.07px;}
+#tx_1{left:682px;bottom:692px;letter-spacing:-0.13px;}
+#ty_1{left:110px;bottom:692px;letter-spacing:-0.19px;}
+#tz_1{left:206px;bottom:692px;letter-spacing:-0.13px;}
+#t10_1{left:383px;bottom:197px;letter-spacing:0.2px;}
+#t15_1{left:133px;bottom:1040px;letter-spacing:0.27px;}
+#t16_1{left:133px;bottom:1023px;letter-spacing:0.24px;}
+#t1b_1{left:601px;bottom:630px;letter-spacing:0.07px;}
+
+.s1_1{font-size:12px;font-family:Times-New-Roman-Bold_w;color:#000;}
+.s2_1{font-size:12px;font-family:Times-New-Roman_1d;color:#000;}
+.s3_1{font-size:13px;font-family:Times-New-Roman-Bold_w;color:#000;}
+.s4_1{font-size:14px;font-family:Times-New-Roman_1d;color:#000;}
+#form1_1{	z-index: 2;	border-style: none;	padding: 0px;	position: absolute;	left: 848px;	top: 58px;	width: 87px;	height: 14px;	text-align: left;	background: transparent;	background-image: url("1/form/350053 0 ROff.png");	background-repeat: no-repeat;	font: normal 10px Arial, Helvetica, sans-serif;}
+#form2_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 714px;	top: 558px;	width: 170px;	height: 22px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form3_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 480px;	top: 856px;	width: 89px;	height: 43px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form4_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 373px;	top: 857px;	width: 90px;	height: 43px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form5_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 268px;	top: 979px;	width: 92px;	height: 44px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form6_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 478px;	top: 914px;	width: 93px;	height: 44px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form7_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 370px;	top: 915px;	width: 93px;	height: 44px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form8_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 483px;	top: 976px;	width: 93px;	height: 46px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form9_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 263px;	top: 911px;	width: 99px;	height: 46px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form10_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 261px;	top: 856px;	width: 103px;	height: 46px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form11_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 443px;	top: 677px;	width: 145px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form12_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 274px;	top: 677px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form13_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 712px;	top: 585px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form14_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 717px;	top: 863px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form15_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 708px;	top: 766px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form16_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 712px;	top: 718px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form17_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 714px;	top: 680px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form18_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 712px;	top: 634px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form19_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 98px;	top: 679px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form20_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 714px;	top: 981px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form21_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 711px;	top: 918px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form22_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 715px;	top: 810px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form23_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 720px;	top: 489px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form24_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 255px;	top: 491px;	width: 410px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form25_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 99px;	top: 378px;	width: 798px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form26_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 99px;	top: 440px;	width: 798px;	height: 34px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form27_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 98px;	top: 303px;	width: 799px;	height: 34px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form28_1{	z-index: 2;	padding: 0px;	position: absolute;	left: 445px;	top: 1060px;	width: 437px;	height: 50px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style id="fonts1" type="text/css" >
+
+@font-face {
+	font-family: Times-New-Roman-Bold_w;
+	src: url("fonts/Times-New-Roman-Bold_w.woff") format("woff");
+}
+
+@font-face {
+	font-family: Times-New-Roman_1d;
+	src: url("fonts/Times-New-Roman_1d.woff") format("woff");
+}
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg1Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg1" style="-webkit-user-select: none;"><object width="935" height="1210" data="1/1.svg" type="image/svg+xml" id="pdf1" style="width:935px; height:1210px; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+
+<div id="t1_1" class="t s1_1">NAME</div>
+<div id="t2_1" class="t s2_1">(According to Qualifying Exam Marks Card) </div>
+<div id="t3_1" class="t s1_1">CET/COMEDK </div>
+<div id="t4_1" class="t s1_1">Reg. No.</div>
+<div id="t5_1" class="t s1_1">CET/COMEDK </div>
+<div id="t6_1" class="t s1_1">Rank</div>
+<div id="t7_1" class="t s1_1">Marks</div>
+<div id="t8_1" class="t s1_1">Special Category</div>
+<div id="ta_1" class="t s1_1">Qualifying Exam.</div>
+<div id="tb_1" class="t s1_1">Obtained Marks</div>
+<div id="tc_1" class="t s1_1">Maximum Marks</div>
+<div id="td_1" class="t s1_1">%</div>
+<div id="te_1" class="t s1_1">Caste</div>
+<div id="tf_1" class="t s3_1">Marks</div>
+<div id="th_1" class="t s3_1">Nationality</div>
+<div id="tj_1" class="t s1_1">Date of birth</div>
+<div id="tk_1" class="t s1_1">Place of birth</div>
+<div id="tl_1" class="t s4_1">Occupation of the Father </div>
+<div id="tm_1" class="t s4_1"></div>
+<div id="tn_1" class="t s1_1">Branch </div>
+<div id="to_1" class="t s1_1">Allotted</div>
+<div id="tp_1" class="t s1_1">Year</div>
+<div id="tq_1" class="t s1_1">Reg. No.</div>
+<div id="tr_1" class="t s1_1">Qualifying Exam.</div>
+<div id="ts_1" class="t s1_1">Examination passed</div>
+<div id="tt_1" class="t s3_1">NAME OF THE FATHER</div>
+<div id="tu_1" class="t s3_1">NAME OF THE MOTHER</div>
+<div id="tv_1" class="t s1_1">Admission Category </div>
+<div id="tx_1" class="t s4_1">Date :</div>
+<div id="ty_1" class="t s4_1">CET/COMEDK </div>
+<div id="tz_1" class="t s4_1">Order No. </div>
+<div id="t10_1" class="t s3_1">Religion</div>
+<div id="t15_1" class="t s3_1">PARTICULARS OF THE CANDIDATE ADMITTED TO </div>
+<div id="t16_1" class="t s3_1">1st/2nd YEAR B.E., DEGREE COURSE DURING 2018-19</div>
+<div id="t1b_1" class="t s1_1">College Code</div>
+<!-- End text definitions -->
+
+
+<!-- Begin Form Data -->
+<form >
+	<style>
+	input {
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+<input id="form2_1" type="text" tabindex="17" value="" data-objref="76562 0 R" name="college_code"   style="border:1px solid black"/>
+<input id="form3_1" type="text" tabindex="11" value="" data-objref="55275 0 R" name="puc_overallpercentage" style="border:1px solid black"/>
+<input id="form4_1" type="text" tabindex="10" value="" data-objref="55271 0 R" name="puc_obtainedmarks" style="border:1px solid black"style="border:1px solid black"/>
+<input id="form5_1" type="text" tabindex="15" value="" data-objref="69431 0 R" name="stu_country"style="border:1px solid black"/>
+<input id="form8_1" type="text" tabindex="16" value="" data-objref="70952 0 R" name="stu_religion"style="border:1px solid black"/>
+<input id="form10_1" type="text" tabindex="9" value="" data-objref="60991 0 R" name="puc_totalmarks"style="border:1px solid black"/>
+<input id="form11_1" type="text" tabindex="8" value="" data-objref="21588 0 R" name="et_year"style="border:1px solid black"/>
+<input id="form12_1" type="text" tabindex="7" value="" data-objref="19715 0 R" name="et_testnumber"style="border:1px solid black"/>
+<input id="form13_1" type="text" tabindex="26" value="" data-objref="113006 0 R" name="branch_allotted"style="border:1px solid black"/>
+<input id="form15_1" type="text" tabindex="21" value="" data-objref="96158 0 R" name="stu_specialcategory"style="border:1px solid black"/>
+<input id="form16_1" type="text" tabindex="20" value="" data-objref="90479 0 R" name="stu_admissioncategory"style="border:1px solid black"/>
+<input id="form17_1" type="text" tabindex="19" value="" data-objref="87646 0 R" name="et_rank"style="border:1px solid black"/>
+<input id="form18_1" type="text" tabindex="18" value="" data-objref="84425 0 R" name="et_regno"style="border:1px solid black"/>
+<input id="form19_1" type="text" tabindex="6" value="" data-objref="17494 0 R" name="et_name"style="border:1px solid black"/>
+<input id="form20_1" type="text" tabindex="25" value="" data-objref="113010 0 R" name="stu_birthplace"style="border:1px solid black"/>
+<input id="form21_1" type="text" tabindex="24" value="" data-objref="110357 0 R" name="stu_dob"style="border:1px solid black"/>
+<input id="form22_1" type="text" tabindex="22" value="" data-objref="103433 0 R" name="stu_caste"style="border:1px solid black"/>
+<input id="form23_1" type="text" tabindex="5" value="" data-objref="10762 0 R" name="date"style="border:1px solid black"/>
+<input id="form24_1" type="text" tabindex="3" value="" data-objref="4631 0 R" name="et_ordernumber"style="border:1px solid black"/>
+<input id="form25_1" type="text" tabindex="1" value="" data-objref="2529 0 R" name="stu_fathername"style="border:1px solid black"/>
+<input id="form26_1" type="text" tabindex="2" value="" data-objref="3322 0 R" name="stu_mothername"style="border:1px solid black"/>
+<input id="form27_1" type="text" tabindex="4" value="" data-objref="9408 0 R" name="stu_name"style="border:1px solid black"/>
+<input id="form28_1" type="text" tabindex="27" value="" data-objref="130668 0 R" name="stu_fatheroccupation"style="border:1px solid black"/>
+
+</form>
+<!-- End Form Data -->
+<div style=" margin-left:730px;">
+	<p style="margin-bottom: 0;margin-top:50px ;"><img id="output" name="" width="140" height="170" style="margin-bottom: 0;margin-top:50px ;" /></p>
+</div>
+</div>
+
+<div id="p2" class="pageArea nextpage" style="overflow: hidden; position: relative; width: 935px; height: 1210px; margin-top:-100px; margin-left:auto; margin-right:auto; background-color: white;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	transform-origin: bottom left;
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_2{left:233px;bottom:894px;letter-spacing:-0.15px;}
+#t2_2{left:226px;bottom:922px;letter-spacing:-0.14px;}
+#t3_2{left:137px;bottom:960px;letter-spacing:-0.14px;}
+#t4_2{left:225px;bottom:960px;letter-spacing:-0.12px;}
+#t5_2{left:284px;bottom:960px;}
+#t6_2{left:110px;bottom:1106px;letter-spacing:-0.14px;}
+#t7_2{left:109px;bottom:859px;letter-spacing:-0.13px;}
+#t8_2{left:110px;bottom:811px;letter-spacing:-0.13px;}
+#t9_2{left:156px;bottom:811px;letter-spacing:-0.15px;}
+#ta_2{left:113px;bottom:756px;letter-spacing:-0.09px;}
+#tb_2{left:131px;bottom:756px;letter-spacing:-0.14px;}
+#tc_2{left:113px;bottom:738px;letter-spacing:-0.14px;}
+#td_2{left:113px;bottom:720px;letter-spacing:-0.14px;}
+#te_2{left:113px;bottom:674px;letter-spacing:-0.14px;}
+#tf_2{left:113px;bottom:656px;letter-spacing:-0.11px;}
+#tg_2{left:175px;bottom:656px;letter-spacing:-0.12px;}
+#th_2{left:113px;bottom:610px;letter-spacing:-0.13px;}
+#ti_2{left:113px;bottom:555px;letter-spacing:-0.13px;}
+#tj_2{left:113px;bottom:519px;letter-spacing:-0.14px;}
+#tk_2{left:117px;bottom:501px;letter-spacing:-0.15px;}
+#tl_2{left:99px;bottom:381px;letter-spacing:-0.12px;}
+#tm_2{left:135px;bottom:381px;letter-spacing:-0.15px;}
+#tn_2{left:99px;bottom:344px;letter-spacing:-0.13px;}
+#to_2{left:557px;bottom:363px;letter-spacing:-0.13px;}
+#tp_2{left:101px;bottom:299px;letter-spacing:-0.13px;}
+#tq_2{left:562px;bottom:234px;letter-spacing:-0.13px;}
+#tr_2{left:99px;bottom:234px;letter-spacing:-0.12px;}
+#ts_2{left:135px;bottom:234px;letter-spacing:-0.15px;}
+#tt_2{left:99px;bottom:207px;letter-spacing:-0.13px;}
+#tu_2{left:461px;bottom:747px;letter-spacing:-0.13px;}
+#tv_2{left:461px;bottom:711px;letter-spacing:-0.14px;}
+#tw_2{left:463px;bottom:995px;letter-spacing:-0.14px;}
+
+.s1_2{font-size:14px;font-family:Times-New-Roman_1d;color:#000;}
+#form1_2{	z-index: 2;	border-style: none;	padding: 0px;	position: absolute;	left: 848px;	top: 58px;	width: 87px;	height: 14px;	text-align: left;	background: transparent;	background-image: url("2/form/350087 0 ROff.png");	background-repeat: no-repeat;	font: normal 10px Arial, Helvetica, sans-serif;}
+#form2_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 520px;	top: 193px;	width: 170px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form3_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 510px;	top: 477px;	width: 370px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form4_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 138px;	top: 981px;	width: 370px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form5_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 471px;	top: 671px;	width: 370px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form6_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 144px;	top: 842px;	width: 370px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form7_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 477px;	top: 526px;	width: 370px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form8_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 510px;	top: 443px;	width: 371px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form9_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 462px;	top: 295px;	width: 384px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form10_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 462px;	top: 266px;	width: 385px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form11_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 460px;	top: 234px;	width: 385px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form12_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 515px;	top: 798px;	width: 370px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form13_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 471px;	top: 624px;	width: 370px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form14_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 472px;	top: 579px;	width: 370px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form15_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 546px;	top: 923px;	width: 370px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form16_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 462px;	top: 329px;	width: 385px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form17_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 452px;	top: 367px;	width: 428px;	height: 52px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form18_2{	z-index: 2;	padding: 0px;	position: absolute;	left: 446px;	top: 75px;	width: 434px;	height: 100px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style id="fonts2" type="text/css" >
+
+@font-face {
+	font-family: Times-New-Roman_1d;
+	src: url("fonts/Times-New-Roman_1d.woff") format("woff");
+}
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg2Overlay" style="width:100%; height:100%; position:absolute;margin-top: -500px; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg2" style="-webkit-user-select: none;"><object width="935" height="1210" data="2/2.svg" type="image/svg+xml" id="pdf2" style="width:935px; height:1210px; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_2" class="t s1_2">Mobile No :</div>
+<div id="t2_2" class="t s1_2">LandLine No :</div>
+<div id="t6_2" class="t s1_2">Permanent Address</div>
+<div id="t7_2" class="t s1_2">Email-id</div>
+<div id="t8_2" class="t s1_2">Family </div>
+<div id="t9_2" class="t s1_2">Annual income</div>
+<div id="ta_2" class="t s1_2">Parents No. </div>
+<div id="te_2" class="t s1_2">Name of the Guardian &amp; Relationship</div>
+<div id="th_2" class="t s1_2">Native</div>
+<div id="tj_2" class="t s1_2">Year of passing the</div>
+<div id="tk_2" class="t s1_2">SSLC / HSC / X Standard / CBSE</div>
+<div id="tl_2" class="t s1_2">Place </div>
+<div id="tm_2" class="t s1_2">: Mysuru</div>
+<div id="tn_2" class="t s1_2">Date :</div>
+<div id="to_2" class="t s1_2">Signature of the candidate</div>
+<div id="tp_2" class="t s1_2">I hereby declare that the above information furnished by me is true and correct</div>
+<div id="tq_2" class="t s1_2">Signature of the Father / Guardian</div>
+<div id="tr_2" class="t s1_2">Place </div>
+<div id="ts_2" class="t s1_2">: Mysuru</div>
+<div id="tt_2" class="t s1_2">Date :</div>
+<div id="tu_2" class="t s1_2">Father :</div>
+<div id="tv_2" class="t s1_2">Mother :</div>
+<div id="tw_2" class="t s1_2">Pincode :</div>
+
+<!-- End text definitions -->
+
+
+<!-- Begin Form Data -->
+<form  >
+<input id="form1_2" type="button" tabindex="46" data-objref="350087 0 R"/>
+<input id="form2_2" type="text" tabindex="34" value="" data-objref="136797 0 R" name="pa_pincode"style="border:1px solid black"/>
+<input id="form3_2" type="text" tabindex="36" value="" data-objref="181468 0 R" name="stu_mothermobile"style="border:1px solid black"/>
+<input id="form4_2" type="text" tabindex="43" value="" data-objref="184016 0 R" name="father_date"style="border:1px solid black"/>
+<input id="form5_2" type="text" tabindex="40" value="" data-objref="169050 0 R" name="x_passingyear" style="border:1px solid black"/>
+<input id="form6_2" type="text" tabindex="41" value="" data-objref="188199 0 R" name="student_date"style="border:1px solid black"/>
+<input id="form7_2" type="text" tabindex="37" value="" data-objref="166095 0 R" name="gu_name"style="border:1px solid black"/>
+<input id="form8_2" type="text" tabindex="35" value="" data-objref="155334 0 R" name="stu_fathermobile"style="border:1px solid black"/>
+<input id="form9_2" type="text" tabindex="32" value="" data-objref="141639 0 R" name="stu_mobile"style="border:1px solid black"/>
+<input id="form10_2" type="text" tabindex="31" value="" data-objref="140370 0 R" name="stu_landline"style="border:1px solid black"/>
+<input id="form12_2" type="text" tabindex="42" value="" data-objref="182059 0 R" name="student_sign"style="border:1px solid black"/>
+<input id="form14_2" type="text" tabindex="38" value="" data-objref="166692 0 R" name="stu_birthplace"style="border:1px solid black"/>
+<input id="form15_2" type="text" tabindex="44" value="" data-objref="185157 0 R" name="father_sign"style="border:1px solid black"/>
+<input id="form16_2" type="text" tabindex="33" value="" data-objref="144956 0 R" name="stu_email"style="border:1px solid black"/>
+<input id="form17_2" type="text" tabindex="45"  data-objref="151948 0 R" value="1000000" style="border:1px solid black"/>
+<input id="form18_2" type="text" tabindex="29"  data-objref="133772 0 R" value="2641,Sahakarnagar, Bangalore" style="border:1px solid black"/>
+
+</form>
+<!-- End Form Data -->
+
+</div>
+<script>
+	var formdata=window.sessionStorage.getItem("form#batchform{{session['username']}}{{degree}}");
+	formdata=JSON.parse(formdata);
+	console.log(formdata);
+	console.log(getIncome());
+	function getIncome(){
+
+		val1=formdata.getItem('stu_fatherincome');
+		val2=formdata.getItem('stu_motherincome');
+		return val1+_val2;
+	}
+
+	function getAddress(){
+		val1=formdata.getItem('pa_house');
+		val2=formdata.getItem('pa_area');
+		val3=formdata.getItem('pa_city');
+		val4=formdata.getItem('pa_post');
+
+		return String(val1)+" "+String(val2)+" "+String(val3)+" "+String(val4);
+	}
+
+</script>
+<div id="p3" class="pageArea" style="overflow: hidden; position: relative; width: 935px; height: 1210px; margin-top:60px; margin-left:auto; margin-right:auto; background-color: white;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	transform-origin: bottom left;
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_3{left:409px;bottom:1125px;letter-spacing:0.09px;}
+#t2_3{left:438px;bottom:1150px;letter-spacing:0.29px;}
+#t3_3{left:704px;bottom:1013px;letter-spacing:-0.16px;}
+#t4_3{left:117px;bottom:997px;letter-spacing:0.08px;}
+#t5_3{left:700px;bottom:976px;letter-spacing:-0.14px;}
+#t6_3{left:113px;bottom:969px;letter-spacing:0.09px;}
+#t7_3{left:159px;bottom:969px;letter-spacing:0.07px;}California
+#t8_3{left:662px;bottom:885px;letter-spacing:-0.13px;}
+#t9_3{left:117px;bottom:885px;letter-spacing:-0.19px;}
+#ta_3{left:213px;bottom:885px;letter-spacing:-0.13px;}
+#tb_3{left:593px;bottom:813px;letter-spacing:0.07px;}
+#tc_3{left:243px;bottom:831px;letter-spacing:0.07px;}
+#td_3{left:593px;bottom:784px;letter-spacing:0.28px;}
+#te_3{left:593px;bottom:766px;letter-spacing:0.2px;}
+#tf_3{left:488px;bottom:767px;letter-spacing:0.08px;}
+#tg_3{left:314px;bottom:767px;letter-spacing:0.07px;}
+#th_3{left:117px;bottom:767px;letter-spacing:0.07px;}
+#ti_3{left:593px;bottom:740px;letter-spacing:0.09px;}
+#tj_3{left:593px;bottom:724px;letter-spacing:0.09px;}
+#tk_3{left:593px;bottom:666px;letter-spacing:0.06px;}
+#tl_3{left:593px;bottom:650px;letter-spacing:0.07px;}
+#tm_3{left:593px;bottom:703px;letter-spacing:0.07px;}
+#tn_3{left:593px;bottom:687px;letter-spacing:0.07px;}
+#to_3{left:313px;bottom:666px;letter-spacing:0.08px;}
+#tp_3{left:593px;bottom:611px;letter-spacing:0.07px;}
+#tq_3{left:504px;bottom:611px;}
+#tr_3{left:287px;bottom:611px;letter-spacing:0.09px;}
+#ts_3{left:399px;bottom:611px;letter-spacing:0.07px;}
+#tt_3{left:117px;bottom:611px;letter-spacing:0.07px;}
+#tu_3{left:593px;bottom:575px;letter-spacing:0.07px;}
+#tv_3{left:117px;bottom:573px;letter-spacing:0.24px;}
+#tw_3{left:593px;bottom:529px;letter-spacing:0.06px;}
+#tx_3{left:117px;bottom:529px;letter-spacing:0.07px;}
+#ty_3{left:593px;bottom:483px;letter-spacing:0.06px;}
+#tz_3{left:117px;bottom:483px;letter-spacing:0.06px;}
+#t10_3{left:289px;bottom:434px;letter-spacing:-0.15px;}
+#t11_3{left:542px;bottom:433px;letter-spacing:0.02px;}
+#t12_3{left:110px;bottom:344px;letter-spacing:0.31px;}
+#t13_3{left:412px;bottom:344px;letter-spacing:0.29px;}
+#t14_3{left:727px;bottom:344px;letter-spacing:0.33px;}
+#t15_3{left:426px;bottom:243px;letter-spacing:0.27px;}
+#t16_3{left:667px;bottom:320px;letter-spacing:-0.14px;}
+#t17_3{left:453px;bottom:170px;letter-spacing:0.21px;}
+#t18_3{left:133px;bottom:170px;letter-spacing:0.26px;}
+#t19_3{left:180px;bottom:1073px;letter-spacing:0.15px;}
+#t1a_3{left:133px;bottom:133px;letter-spacing:0.26px;}
+#t1b_3{left:455px;bottom:133px;letter-spacing:0.21px;}
+#t1c_3{left:691px;bottom:170px;letter-spacing:-0.14px;}
+#t1d_3{left:691px;bottom:133px;letter-spacing:-0.14px;}
+#t1e_3{left:251px;bottom:1097px;letter-spacing:0.09px;}
+#t1f_3{left:667px;bottom:1097px;letter-spacing:0.06px;}
+#t1g_3{left:589px;bottom:850px;letter-spacing:0.07px;}
+
+.s1_3{font-size:12px;font-family:Times-New-Roman-Bold_w;color:#000;}
+.s2_3{font-size:13px;font-family:Times-New-Roman-Bold_w;color:#000;}
+.s3_3{font-size:14px;font-family:Times-New-Roman_1d;color:#000;}
+.s4_3{font-size:12px;font-family:Times-New-Roman_1d;color:#000;}
+.s5_3{font-size:15px;font-family:Arial_17;color:#000;}
+.s6_3{font-size:11px;font-family:Times-New-Roman-Bold_w;color:#000;}
+.s7_3{font-size:16px;font-family:Times-New-Roman-Bold_w;color:#000;}
+#form1_3{	z-index: 2;	border-style: none;	padding: 0px;	position: absolute;	left: 848px;	top: 58px;	width: 87px;	height: 14px;	text-align: left;	background: transparent;	background-image: url("3/form/350092 0 ROff.png");	background-repeat: no-repeat;	font: normal 10px Arial, Helvetica, sans-serif;}
+#form2_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 483px;	top: 648px;	width: 77px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form3_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 486px;	top: 608px;	width: 77px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form4_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 766px;	top: 173px;	width: 119px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form5_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 770px;	top: 208px;	width: 118px;	height: 25px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form6_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 266px;	top: 653px;	width: 96px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form7_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 263px;	top: 610px;	width: 96px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form8_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 371px;	top: 648px;	width: 98px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form9_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 373px;	top: 608px;	width: 98px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form10_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 457px;	top: 452px;	width: 107px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form11_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 188px;	top: 185px;	width: 193px;	height: 23px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form12_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 98px;	top: 452px;	width: 154px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form13_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 727px;	top: 697px;	width: 159px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form14_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 701px;	top: 300px;	width: 182px;	height: 29px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form15_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 717px;	top: 368px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form16_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 718px;	top: 491px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form17_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 718px;	top: 410px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form18_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 720px;	top: 523px;	width: 170px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form19_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 497px;	top: 1010px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form20_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 720px;	top: 567px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form21_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 721px;	top: 608px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form22_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 718px;	top: 451px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form23_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 711px;	top: 1047px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form24_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 709px;	top: 1012px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form25_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 506px;	top: 1047px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form26_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 720px;	top: 646px;	width: 171px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form27_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 268px;	top: 451px;	width: 173px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form28_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 223px;	top: 1047px;	width: 213px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form29_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 220px;	top: 1013px;	width: 213px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form30_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 630px;	top: 807px;	width: 252px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form31_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 14px;	top: 807px;	width: 252px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form32_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 309px;	top: 805px;	width: 254px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form33_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 269px;	top: 698px;	width: 281px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form34_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 582px;	top: 753px;	width: 297px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form35_3{	z-index: 2;	padding: 0px;	position: absolute;	right: 274px;	top: 297px;	width: 359px;	height: 32px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+#form36_3{	z-index: 2;	padding: 0px;	position: absolute;	left: 107px;	top: 249px;	width: 779px;	height: 29px;	color: rgb(0,0,0);	text-align: left;	background: transparent;	border: none;	font: normal 18px 'Times New Roman', Times, serif;}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style id="fonts3" type="text/css" >
+
+@font-face {
+	font-family: Arial_17;
+	src: url("fonts/Arial_17.woff") format("woff");
+}
+
+@font-face {
+	font-family: Times-New-Roman-Bold_w;
+	src: url("fonts/Times-New-Roman-Bold_w.woff") format("woff");
+}
+
+@font-face {
+	font-family: Times-New-Roman_1d;
+	src: url("fonts/Times-New-Roman_1d.woff") format("woff");
+}
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg3Overlay" style="width:100%; height:100%; position:absolute; z-index:1; margin-top: -200px; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg3" style="-webkit-user-select: none;"><object width="935" height="1210" data="3/3.svg" type="image/svg+xml" id="pdf3" style="width:935px; height:1210px; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_3" class="t s1_3">JSS SCIENCE AND TECHNOLOGY UNIVERSITY</div>
+<div id="t2_3" class="t s2_3">JSS MAHAVIDYAPEETHA</div>
+<div id="t3_3" class="t s3_3">SR No.</div>
+<div id="t4_3" class="t s4_3">Date </div>
+<div id="t6_3" class="t s1_3">NAME </div>
+<div id="t7_3" class="t s1_3">(According to Qualifying Exam Marks Card) </div>
+<div id="t9_3" class="t s3_3">CET/COMEDK </div>
+<div id="ta_3" class="t s3_3">Order No. </div>
+<div id="tc_3" class="t s1_3">Examination passed</div>
+<div id="td_3" class="t s2_3">CET/COMEDK </div>
+<div id="te_3" class="t s2_3">Reg. No.</div>
+<div id="tf_3" class="t s1_3">Year</div>
+<div id="tg_3" class="t s1_3">Reg. No.</div>
+<div id="th_3" class="t s1_3">Qualifying Exam.</div>
+<div id="ti_3" class="t s1_3">CET/COMEDK </div>
+<div id="tj_3" class="t s1_3">Rank</div>
+<div id="tk_3" class="t s1_3">Special Category</div>
+<div id="tm_3" class="t s1_3">Admission Category</div>
+<div id="to_3" class="t s1_3">Marks</div>
+<div id="tp_3" class="t s1_3">Caste</div>
+<div id="tq_3" class="t s1_3">%</div>
+<div id="tr_3" class="t s1_3">Maximum Marks</div>
+<div id="ts_3" class="t s1_3">Obtained MArks</div>
+<div id="tt_3" class="t s1_3">Qualifying Exam.</div>
+<div id="tv_3" class="t s2_3">Marks</div>
+<div id="tw_3" class="t s1_3">Date of birth</div>
+<div id="ty_3" class="t s1_3">Place of birth</div>
+<div id="tz_3" class="t s1_3">Nationality</div>
+<div id="t15_3" class="t s2_3">PRINCIPAL</div>
+<div id="t19_3" class="t s7_3">OBSERVATION SHEET FOR ADMISSION TO I/II B.E.DEGREE COURSE - 2018-19</div>
+<div id="t1e_3" class="t s1_3">SRI JAYACHAMARAJENDRA COLLEGE OF ENGINEERING, MYSURU - </div>
+<div id="t1f_3" class="t s1_3">570 006 </div>
+
+<!-- End text definitions -->
+
+
+<!-- Begin Form Data -->
+<form  >
+<input id="form1_3" type="button" tabindex="82" data-objref="350092 0 R"/>
+<input id="form3_3" type="text" tabindex="66" value="" data-objref="257803 0 R" name="puc_overallpercentage"style="border:1px solid black"/>
+<input id="form4_3" type="text" tabindex="47" value="" data-objref="192165 0 R" name="stu_admissionnumber"style="border:1px solid black"/>
+<input id="form7_3" type="text" tabindex="64" value="" data-objref="280049 0 R" name="puc_totalmarks"style="border:1px solid black"/>
+<input id="form10_3" type="text" tabindex="54" value="2018" data-objref="213459 0 R" name="et_year"style="border:1px solid black"/>
+<input id="form9_3" type="text" tabindex="65" value="" data-objref="255078 0 R" name="puc_obtainedmarks"style="border:1px solid black"/>
+<input id="form11_3" type="text" tabindex="49" value="" data-objref="188260 0 R" name="date"style="border:1px solid black"/>
+<input id="form12_3" type="text" tabindex="55" value="" data-objref="213455 0 R" name="et_name"style="border:1px solid black"/>
+<input id="form13_3" type="text" tabindex="63" value="" data-objref="288952 0 R" name="stu_birthplace"style="border:1px solid black"/>
+<input id="form16_3" type="text" tabindex="58" value="" data-objref="235573 0 R" name="stu_admissioncategory"style="border:1px solid black"/>
+<input id="form17_3" type="text" tabindex="56" value="" data-objref="232209 0 R" name="et_testnumber"style="border:1px solid black"/>
+<input id="form18_3" type="text" tabindex="59" value="" data-objref="237064 0 R" name="stu_specialcategory"style="border:1px solid black"/>
+<input id="form20_3" type="text" tabindex="60" value="" data-objref="239453 0 R" name="stu_caste"style="border:1px solid black"/>
+<input id="form22_3" type="text" tabindex="57" value="" data-objref="233332 0 R" name="et_rank"style="border:1px solid black"/>
+<input id="form26_3" type="text" tabindex="62" value="" data-objref="243745 0 R" name="stu_dob"style="border:1px solid black"/>
+<input id="form27_3" type="text" tabindex="53" value="CP-303" data-objref="212006 0 R" name="et_regno"style="border:1px solid black"/>
+<input id="form33_3" type="text" tabindex="70" value="" data-objref="280053 0 R" name="stu_country"style="border:1px solid black"style="border:1px solid black"/>
+<input id="form35_3" type="text" tabindex="51" value="" data-objref="203532 0 R" name="et_ordernumber"style="border:1px solid black"/>
+<input id="form36_3" type="text" tabindex="50" value="" data-objref="197123 0 R" name="stu_name"style="border:1px solid black"/>
+
+</form>
+<!-- End Form Data -->
+
+</div>
+
+<!--<div id="p4" class="pageArea" style="overflow: hidden; position: relative; width: 935px; height: 1210px; margin-top:20px; margin-left:auto; margin-right:auto; background-color: white;">
+-->
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#form1_4{	z-index: 2;	border-style: none;	padding: 0px;	position: absolute;	left: 848px;	top: 58px;	width: 87px;	height: 14px;	text-align: left;	background: transparent;	background-image: url("4/form/350097 0 ROff.png");	background-repeat: no-repeat;	font: normal 10px Arial, Helvetica, sans-serif;}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin page background 
+<div id="pg4Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg4" style="-webkit-user-select: none;"><object width="935" height="1210" data="4/4.svg" type="image/svg+xml" id="pdf4" style="width:935px; height:1210px; -moz-transform:scale(1); z-index: 0;"></object></div>
+End page background -->
+
+
+<!-- Begin Form Data -->
+ <form  >
+<input id="form1_4" type="button" tabindex="83" data-objref="350097 0 R"/>
+
+</form  >
+ <!-- End Form Data -->
+
+</div>
+<div id='FDFXFA_PDFDump' style='display:none;'>
+</div>
+<script type="text/javascript">
+
+
+</script>
+</body>
+</html>
