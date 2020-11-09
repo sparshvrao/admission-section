@@ -17,9 +17,9 @@ if env=="local":
     DATABASE = 'lccsjce'
 else:
     HOST = 'sql12.freemysqlhosting.net'                                            #Connect to db
-    USER = 'sql12374041'
-    PASSWORD = 'XXuSAGCGf4'
-    DATABASE = 'sql12374041'
+    USER = 'sql12375496'
+    PASSWORD = 'MZWEI57Wb5'
+    DATABASE = 'sql12375496'
 
 db = pymysql.connect(host=HOST,user=USER,password=PASSWORD,db=DATABASE)
                             
