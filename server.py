@@ -16,10 +16,10 @@ if env=="local":
     PASSWORD = ''
     DATABASE = ''
 else:
-    HOST = 'sql12.freemysqlhosting.net'                                        
-    USER = 'sql12375496'
-    PASSWORD = 'MZWEI57Wb5'
-    DATABASE = 'sql12375496'
+    HOST = 'sql5.freemysqlhosting.net'                                        
+    USER = 'sql5429887'
+    PASSWORD = 'yS2elfjxKQ'
+    DATABASE = 'sql5429887'
 
 db = pymysql.connect(host=HOST,user=USER,password=PASSWORD,db=DATABASE)
                             
